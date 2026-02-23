@@ -107,4 +107,114 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // ============================================
+    // NEW HERO SECTION ANIMATIONS
+    // ============================================
+
+    // 5. Text Rotation Animation
+    initTextRotation();
+
+    // 6. Parallax Effect for Floating Shapes
+    initParallaxShapes();
+
+    // 7. Card Flip Animation
+    initCardFlip();
+
+    // 8. Smooth Scroll for Hero CTA
+    initSmoothScroll();
 });
+
+// Text Rotation Animation
+function initTextRotation() {
+    const texts = [
+        "Dev & Designer",
+        "UX/UI Expertise",
+        "HTML5/CSS3 Mastery",
+        "Product Design",
+        "Branding",
+        "Full Stack Developer"
+    ];
+
+    const element = document.getElementById('rotatingText');
+    if (!element) return;
+
+    let index = 0;
+
+    setInterval(() => {
+        // Fade out
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(-10px)';
+        element.style.transition = 'all 0.3s ease';
+
+        setTimeout(() => {
+            // Change text
+            index = (index + 1) % texts.length;
+            element.textContent = texts[index];
+
+            // Fade in
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }, 300);
+    }, 2500);
+}
+
+// Parallax Effect for Floating Shapes
+function initParallaxShapes() {
+    const shapes = document.querySelectorAll('.shape');
+    const hero = document.querySelector('.hero-new');
+
+    if (!hero || window.matchMedia('(pointer: coarse)').matches) return;
+
+    hero.addEventListener('mousemove', (e) => {
+        const { clientX, clientY } = e;
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+
+        shapes.forEach((shape) => {
+            const speed = parseFloat(shape.dataset.speed) || 0.5;
+            const x = (clientX - centerX) * speed * 0.02;
+            const y = (clientY - centerY) * speed * 0.02;
+            const rotate = (clientX - centerX) * 0.01;
+
+            // Preserve the floating animation while adding parallax
+            shape.style.transform = `translate(${x}px, ${y}px) rotate(${rotate}deg)`;
+        });
+    });
+
+    // Reset on mouse leave
+    hero.addEventListener('mouseleave', () => {
+        shapes.forEach(shape => {
+            shape.style.transform = '';
+        });
+    });
+}
+
+// Card Flip Animation
+function initCardFlip() {
+    const card = document.querySelector('.profile-card-container');
+    if (!card) return;
+
+    // Auto flip every 5 seconds
+    setInterval(() => {
+        card.classList.toggle('flipped');
+    }, 5000);
+
+    // Click to flip
+    card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+    });
+}
+
+// Smooth scroll for all anchor links
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+}

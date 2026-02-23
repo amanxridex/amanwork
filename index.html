@@ -1,4 +1,4 @@
-<!-- index.html -->
+<!-- index.html - HERO SECTION ONLY -->
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
@@ -36,65 +36,110 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-bg">
-            <div class="gradient-orb orb-1"></div>
-            <div class="gradient-orb orb-2"></div>
-            <div class="gradient-orb orb-3"></div>
+    <!-- Hero Section - New Design -->
+    <section class="hero-new" id="hero">
+        <!-- Large Background Text -->
+        <div class="hero-bg-text">
+            <div class="bg-text-row" id="bgText1">ONIXLARRYB</div>
+            <div class="bg-text-row" id="bgText2">NXLARRYBI</div>
         </div>
 
-        <div class="hero-content">
-            <div class="hero-tag" data-animate="fade-up">
-                <span class="dot"></span>
-                Available for freelance
+        <!-- 3D Floating Shapes -->
+        <div class="floating-shapes">
+            <!-- Orange Pyramid (Top Left) -->
+            <div class="shape shape-pyramid" data-speed="0.5">
+                <img src="https://framerusercontent.com/images/LUkmo3gFVQOfp5kvltA05Mc6K4.png?scale-down-to=512"
+                    alt="Pyramid">
             </div>
 
-            <h1 class="hero-title" data-animate="split-text">
-                <span class="line">Dev &</span>
-                <span class="line">Designer</span>
-                <span class="line accent">Founder</span>
-            </h1>
-
-            <p class="hero-subtitle" data-animate="fade-up" data-delay="0.4">
-                Building digital products that matter. From code to pixels,
-                startups to scale. Previously sales at Apna & Vimal,
-                now crafting experiences.
-            </p>
-
-            <div class="hero-cta" data-animate="fade-up" data-delay="0.6">
-                <a href="#work" class="btn-primary" data-cursor="hover">
-                    <span>View Work</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M7 17L17 7M17 7H7M17 7V17" />
-                    </svg>
-                </a>
-                <a href="#contact" class="btn-secondary" data-cursor="hover">Let's Talk</a>
+            <!-- Cyan Star (Top Right) -->
+            <div class="shape shape-star" data-speed="0.3">
+                <img src="https://framerusercontent.com/images/l1KkpEI9tJzqQPgJDNKytRuxgeI.png?scale-down-to=512"
+                    alt="Star">
             </div>
-        </div>
 
-        <div class="hero-image" data-animate="scale-in" data-delay="0.3">
-            <div class="image-frame">
-                <div class="image-glitch"></div>
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop"
-                    alt="Profile" class="profile-img">
-                <div class="image-border"></div>
+            <!-- Purple Sphere (Left) -->
+            <div class="shape shape-sphere" data-speed="0.7">
+                <img src="https://framerusercontent.com/images/0f09LEy6qZK1Y9gL9T6AG622ZZ8.png?scale-down-to=512"
+                    alt="Sphere">
             </div>
-            <div class="floating-card card-1">
-                <span class="card-icon">⚡</span>
-                <span class="card-text">5+ Years</span>
+
+            <!-- Green Blob (Right) -->
+            <div class="shape shape-blob" data-speed="0.4">
+                <img src="https://framerusercontent.com/images/m3YA9HpmQG8c9ThSe5XusCzYw.png?scale-down-to=512"
+                    alt="Blob">
             </div>
-            <div class="floating-card card-2">
-                <span class="card-icon">🚀</span>
-                <span class="card-text">3 Startups</span>
+
+            <!-- Blue Cylinder (Bottom Left) -->
+            <div class="shape shape-cylinder" data-speed="0.6">
+                <img src="https://framerusercontent.com/images/lZLqIoLGAjMHHOlhOwugYSASrjc.png?scale-down-to=512"
+                    alt="Cylinder">
+            </div>
+
+            <!-- Yellow Cube (Bottom Right) -->
+            <div class="shape shape-cube" data-speed="0.5">
+                <img src="https://framerusercontent.com/images/jaVohrUAKzleX6rjxEEOPrqeysw.png?scale-down-to=512"
+                    alt="Cube">
             </div>
         </div>
 
-        <div class="scroll-indicator" data-animate="fade-up" data-delay="1">
-            <div class="mouse">
-                <div class="wheel"></div>
+        <!-- Main Content -->
+        <div class="hero-center">
+            <div class="hero-text">
+                <h1 class="hero-title-new">Hi, I'm <span class="italic">Aman!</span></h1>
+                <p class="hero-subtitle-new" id="rotatingText">Dev & Designer</p>
             </div>
-            <span>Scroll</span>
+
+            <!-- Profile Card with Flip Animation -->
+            <div class="profile-card-container" data-cursor="hover">
+                <div class="profile-card">
+                    <!-- Front -->
+                    <div class="card-face card-front">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop"
+                                alt="Aman" class="profile-img-new">
+                        </div>
+                    </div>
+                    <!-- Back -->
+                    <div class="card-face card-back">
+                        <div class="scroll-indicator-new">
+                            <svg viewBox="0 0 100 100" class="rotating-text-svg">
+                                <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+                                    fill="none" />
+                                <text>
+                                    <textPath href="#circlePath" startOffset="0%">
+                                        SCROLL DOWN • AND KNOW ME BETTER •
+                                    </textPath>
+                                </text>
+                            </svg>
+                            <div class="center-arrow">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M12 5v14M19 12l-7 7-7-7" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Proof -->
+            <div class="social-proof">
+                <div class="client-avatars">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop"
+                        alt="Client 1">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop"
+                        alt="Client 2">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop"
+                        alt="Client 3">
+                </div>
+                <span class="client-text">50+ Happy Clients</span>
+            </div>
+
+            <!-- CTA Button -->
+            <a href="#contact" class="hero-cta-new" data-cursor="hover">
+                <span>Let's Work Together!</span>
+            </a>
         </div>
     </section>
 
