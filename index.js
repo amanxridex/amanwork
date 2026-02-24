@@ -2,18 +2,70 @@
    index.js — Cohesion-level smooth scroll + animations
    ═══════════════════════════════════════════════════════ */
 
+/* ── PAGE LOADER FUNCTION (MOVED TO TOP) ── */
+function initPageLoader() {
+    const loader = document.getElementById('page-loader');
+    const loaderFill = document.querySelector('.loader-fill');
+    const loaderWipe = document.querySelector('.loader-wipe');
+
+    if (!loader) {
+        console.log('No loader found, skipping loader animation');
+        document.body.classList.add('loaded');
+        return;
+    }
+
+    // Simulate loading progress
+    let progress = 0;
+    const duration = 1800; // 1.8 seconds total load time
+    const interval = 16; // ~60fps
+
+    const increment = 100 / (duration / interval);
+
+    const loadInterval = setInterval(() => {
+        progress += increment;
+
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(loadInterval);
+
+            // Fill complete, start exit animation
+            if (loaderFill) loaderFill.style.width = '100%';
+
+            setTimeout(() => {
+                // Trigger wipe animation
+                if (loaderWipe) loaderWipe.classList.add('wipe-active');
+
+                setTimeout(() => {
+                    // Fade out loader
+                    loader.classList.add('loader-done');
+                    document.body.classList.add('loaded');
+
+                    // Remove from DOM after animation
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 600);
+
+                }, 350); // Wait for wipe to cover screen
+
+            }, 200); // Small pause at 100%
+
+        } else {
+            if (loaderFill) loaderFill.style.width = progress + '%';
+        }
+    }, interval);
+}
+
 /* ── Lenis-style smooth scroll (vanilla, no lib needed) ── */
 class SmoothScroll {
     constructor() {
         this.currentY = window.scrollY;
         this.targetY = window.scrollY;
-        this.ease = 0.085; // lower = more inertia (Cohesion feel)
+        this.ease = 0.085;
         this.running = false;
         this.listeners = [];
         this.init();
     }
     init() {
-        // Override native scroll with wheel events
         window.addEventListener('wheel', (e) => {
             e.preventDefault();
             this.targetY = Math.max(0, Math.min(
@@ -23,7 +75,6 @@ class SmoothScroll {
             if (!this.running) this.run();
         }, { passive: false });
 
-        // Touch support
         let touchStartY = 0;
         window.addEventListener('touchstart', e => { touchStartY = e.touches[0].clientY; }, { passive: true });
         window.addEventListener('touchmove', e => {
@@ -33,7 +84,6 @@ class SmoothScroll {
             if (!this.running) this.run();
         }, { passive: true });
 
-        // Keep scrollY in sync for nav active state etc
         this.run();
     }
     run() {
@@ -59,11 +109,11 @@ class SmoothScroll {
     scrollTo(y) { this.targetY = y; if (!this.running) this.run(); }
 }
 
-// Global smooth scroll instance (skip on touch/mobile)
 let smoothScroll = null;
 
+/* ── DOMContentLoaded: NOW initPageLoader is defined above ── */
 document.addEventListener('DOMContentLoaded', () => {
-    // Start page loader first
+    // Start page loader first (now this works because function is defined above)
     initPageLoader();
 
     // Init smooth scroll only on desktop
@@ -85,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initShapeScrollParallax();
     initStackCloudParallax();
 });
+
 
 /* ---------------------------------------------------------
    MOBILE TOUCH FEEDBACK

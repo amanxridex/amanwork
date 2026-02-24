@@ -2485,3 +2485,148 @@ body {
     animation: none;
   }
 }
+
+/* Add these loader fixes to your CSS */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  background: #050505;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#page-loader.loader-done {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease 0.1s;
+}
+
+.loader-wipe {
+  position: absolute;
+  inset: 0;
+  background: #050505;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  z-index: 3;
+}
+
+.loader-wipe.wipe-active {
+  animation: loaderWipe 0.7s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+@keyframes loaderWipe {
+  0% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+
+  50% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+
+  51% {
+    transform-origin: top;
+  }
+
+  100% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+}
+
+/* Ensure body content starts hidden */
+body:not(.loaded) .hero-title-new,
+body:not(.loaded) .profile-card-container,
+body:not(.loaded) .social-proof,
+body:not(.loaded) .hero-cta-new,
+body:not(.loaded) .hero-subtitle-new,
+body:not(.loaded) .floating-shapes {
+  opacity: 0 !important;
+  animation: none !important;
+}
+
+/* Reveal animations when loaded */
+body.loaded .hero-title-new {
+  animation: heroTitleIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+body.loaded .profile-card-container {
+  animation: fadeSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+body.loaded .social-proof {
+  animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
+}
+
+body.loaded .hero-cta-new {
+  animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.72s both;
+}
+
+body.loaded .floating-shapes {
+  animation: fadeIn 1s ease 0.5s both;
+}
+
+@keyframes heroTitleIn {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fallback: if JS fails, show content after 3 seconds */
+@media (prefers-reduced-motion: no-preference) {
+  body:not(.loaded) {
+    animation: forceLoad 0.1s ease 3s forwards;
+  }
+
+  @keyframes forceLoad {
+    to {
+      opacity: 1;
+    }
+  }
+
+  body:not(.loaded) .hero-title-new,
+  body:not(.loaded) .profile-card-container,
+  body:not(.loaded) .social-proof,
+  body:not(.loaded) .hero-cta-new,
+  body:not(.loaded) .hero-subtitle-new {
+    animation: forceContentLoad 0.5s ease 3s forwards !important;
+  }
+
+  @keyframes forceContentLoad {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
