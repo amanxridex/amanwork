@@ -63,6 +63,9 @@ class SmoothScroll {
 let smoothScroll = null;
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Start page loader first
+    initPageLoader();
+
     // Init smooth scroll only on desktop
     if (!window.matchMedia('(pointer: coarse)').matches) {
         smoothScroll = new SmoothScroll();
@@ -571,7 +574,7 @@ function initProjectCards() {
             const y = ((e.clientY - r.top) / r.height - 0.5) * 2;
             card.style.transform = `perspective(1200px) rotateX(${y * -8}deg) rotateY(${x * 8}deg) translateZ(12px)`;
             card.style.transition = 'transform 0.08s linear';
-            shine.style.background = `radial-gradient(circle at ${((x+1)/2)*100}% ${((y+1)/2)*100}%, rgba(255,255,255,0.13) 0%, transparent 65%)`;
+            shine.style.background = `radial-gradient(circle at ${((x + 1) / 2) * 100}% ${((y + 1) / 2) * 100}%, rgba(255,255,255,0.13) 0%, transparent 65%)`;
         });
 
         card.addEventListener('mouseleave', () => {
@@ -637,3 +640,4 @@ function initMagneticButtons() {
         });
     });
 }
+
