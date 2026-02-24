@@ -292,8 +292,8 @@ function initStackCloudParallax() {
     const cloud = document.querySelector('.stack-cloud');
     if (!cloud) return;
 
-    const items = cloud.querySelectorAll('.stack-item[data-speed]');
-    if (!items.length) return;
+    const groups = cloud.querySelectorAll('.stack-group[data-speed]');
+    if (!groups.length) return;
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const compactLayout = window.matchMedia('(max-width: 768px)');
@@ -301,7 +301,7 @@ function initStackCloudParallax() {
 
     const setShift = () => {
         if (reduceMotion.matches || compactLayout.matches) {
-            items.forEach(item => item.style.setProperty('--scroll-shift', '0px'));
+            groups.forEach(group => group.style.setProperty('--group-shift', '0px'));
             ticking = false;
             return;
         }
@@ -311,10 +311,10 @@ function initStackCloudParallax() {
         const cloudCenter = rect.top + rect.height / 2;
         const offsetFromCenter = cloudCenter - viewportCenter;
 
-        items.forEach(item => {
-            const speed = parseFloat(item.dataset.speed || '0.1');
+        groups.forEach(group => {
+            const speed = parseFloat(group.dataset.speed || '0.1');
             const shift = Math.max(-28, Math.min(28, -offsetFromCenter * speed * 0.22));
-            item.style.setProperty('--scroll-shift', `${shift.toFixed(2)}px`);
+            group.style.setProperty('--group-shift', `${shift.toFixed(2)}px`);
         });
 
         ticking = false;

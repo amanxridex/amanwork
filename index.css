@@ -1962,14 +1962,14 @@ body {
 .stack-cloud-wrap {
   margin-top: 16px;
   position: relative;
-  border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
   overflow: hidden;
   background:
-    radial-gradient(circle at 15% 18%, rgba(255, 215, 0, 0.15), transparent 30%),
-    radial-gradient(circle at 86% 12%, rgba(99, 102, 241, 0.2), transparent 34%),
-    linear-gradient(180deg, rgba(14, 14, 14, 0.96), rgba(7, 7, 7, 0.92));
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+    radial-gradient(circle at 15% 16%, rgba(255, 215, 0, 0.13), transparent 32%),
+    radial-gradient(circle at 88% 14%, rgba(99, 102, 241, 0.16), transparent 34%),
+    linear-gradient(180deg, rgba(13, 13, 13, 0.98), rgba(8, 8, 8, 0.95));
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
 }
 
 .stack-cloud-wrap::before {
@@ -1978,74 +1978,76 @@ body {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 28px 28px;
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 26px 26px;
   opacity: 0.2;
 }
 
 .stack-cloud {
   position: relative;
-  min-height: 540px;
-  padding: 20px;
+  min-height: 560px;
+  padding: 24px;
+}
+
+.stack-group {
+  position: absolute;
+  left: var(--gx);
+  top: var(--gy);
+  width: var(--w, 40%);
+  transform: translateY(var(--group-shift, 0px));
+  animation: stackGroupFloat var(--float, 8s) ease-in-out infinite;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stack-group-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 215, 0, 0.88);
+  margin-bottom: 12px;
+}
+
+.stack-group-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .stack-cloud .stack-item {
-  position: absolute;
-  left: var(--x);
-  top: var(--y);
   padding: 0 !important;
   background: transparent !important;
   border: none !important;
   border-radius: 0 !important;
   box-shadow: none !important;
-  transform: translate3d(0, var(--scroll-shift, 0px), 0) !important;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.stack-cloud .stack-item:hover {
-  transform: translate3d(0, var(--scroll-shift, 0px), 0) !important;
+  transform: none !important;
 }
 
 .stack-cloud .stack-chip {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 11px 16px;
+  padding: 10px 14px;
   border-radius: 999px;
-  background: rgba(10, 10, 10, 0.66);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  animation: stackChipFloat var(--duration, 8s) ease-in-out infinite;
-  animation-delay: var(--delay, 0s);
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-}
-
-@keyframes stackChipFloat {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-9px);
-  }
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(16, 16, 16, 0.64);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, background-color 0.25s ease;
 }
 
 .stack-cloud .stack-item:hover .stack-chip {
-  transform: translateY(-3px) scale(1.04);
-  border-color: rgba(255, 215, 0, 0.44);
-  background: rgba(15, 15, 15, 0.78);
-  box-shadow: 0 20px 36px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(255, 215, 0, 0.18);
+  transform: translateY(-2px) scale(1.03);
+  border-color: rgba(255, 215, 0, 0.45);
+  background: rgba(19, 19, 19, 0.78);
 }
 
 .stack-cloud .stack-icon {
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   border-radius: 10px;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.03em;
   background: rgba(255, 255, 255, 0.08);
@@ -2060,29 +2062,44 @@ body {
 }
 
 .stack-cloud .stack-icon-text {
-  padding: 0 8px;
-  min-width: 34px;
+  min-width: 32px;
   width: auto;
+  padding: 0 8px;
 }
 
 .stack-cloud .stack-item span {
-  color: #f5f5f5;
-  font-size: 0.92rem;
+  color: #f3f3f3;
+  font-size: 0.9rem;
   font-weight: 500;
   white-space: nowrap;
 }
 
+@keyframes stackGroupFloat {
+  0%,
+  100% {
+    transform: translateY(var(--group-shift, 0px));
+  }
+
+  50% {
+    transform: translateY(calc(var(--group-shift, 0px) - 8px));
+  }
+}
+
 @media (max-width: 900px) {
   .stack-cloud {
-    min-height: 480px;
+    min-height: 520px;
+  }
+
+  .stack-group-title {
+    margin-bottom: 10px;
   }
 
   .stack-cloud .stack-chip {
-    padding: 10px 14px;
+    padding: 9px 12px;
   }
 
   .stack-cloud .stack-item span {
-    font-size: 0.86rem;
+    font-size: 0.84rem;
   }
 }
 
@@ -2094,31 +2111,58 @@ body {
   .stack-cloud {
     min-height: auto;
     display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-    padding: 18px;
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px;
   }
 
-  .stack-cloud .stack-item {
+  .stack-group {
     position: relative;
     left: auto;
     top: auto;
+    width: 100%;
     transform: none !important;
-    flex: 1 1 calc(50% - 12px);
-    min-width: 150px;
+    animation: none;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  }
+
+  .stack-group:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .stack-group-title {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+  }
+
+  .stack-group-items {
+    gap: 8px;
   }
 
   .stack-cloud .stack-chip {
-    width: 100%;
-    justify-content: flex-start;
-    animation: none;
+    padding: 8px 11px;
+    box-shadow: none;
+    backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .stack-cloud .stack-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+  }
+
+  .stack-cloud .stack-item span {
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 480px) {
-  .stack-cloud .stack-item {
-    flex: 1 1 100%;
+  .stack-cloud {
+    padding: 14px;
   }
 }
 
@@ -2126,5 +2170,11 @@ body {
   .stack-cloud .stack-item.touch-active .stack-chip {
     transform: scale(1.03);
     border-color: rgba(255, 215, 0, 0.4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stack-group {
+    animation: none !important;
   }
 }
