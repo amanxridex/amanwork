@@ -1,4 +1,3 @@
-i didnt liked the work section redesign it fully ! <!-- index.html -->
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
@@ -331,77 +330,102 @@ i didnt liked the work section redesign it fully ! <!-- index.html -->
 
     <!-- Stack Section Redesigned -->
     <section class="stack" id="stack">
-        <div class="stack-layout">
-            <!-- Left: Floating Core (Spinner) -->
-            <div class="stack-core" data-animate="scale-in">
-                <div class="spinner-wrapper">
-                    <div class="spinner">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+        <!-- Floating Spinners Background -->
+        <div class="stack-bg-spinners" aria-hidden="true">
+            <div class="spinner-bg spinner-1" data-speed="0.2">
+                <div class="spinner">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="spinner-bg spinner-2" data-speed="0.5">
+                <div class="spinner">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="spinner-bg spinner-3" data-speed="0.3">
+                <div class="spinner">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="spinner-bg spinner-4" data-speed="0.4">
+                <div class="spinner">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stack-header" data-animate="fade-up">
+            <span class="section-tag">Tech Stack</span>
+            <h2 class="section-title">The <span class="gradient-text">Engine</span> Inside</h2>
+        </div>
+
+        <div class="stack-grid">
+            <!-- Frontend -->
+            <div class="stack-cat-card" data-animate="fade-up" data-delay="0.1">
+                <h3 class="cat-title">Frontend</h3>
+                <div class="cat-items">
+                    <div class="tech-chip"><img src="assets/react.png" alt="React"
+                            onerror="this.style.display='none'"><span>React</span></div>
+                    <div class="tech-chip"><img src="assets/html-5.png" alt="HTML5"
+                            onerror="this.style.display='none'"><span>HTML5</span></div>
+                    <div class="tech-chip"><img src="assets/java-script.png" alt="JavaScript"
+                            onerror="this.style.display='none'"><span>JavaScript</span></div>
+                    <div class="tech-chip">
+                        <div class="tech-text-icon">TW</div><span>Tailwind</span>
                     </div>
                 </div>
-                <div class="core-glow"></div>
             </div>
 
-            <!-- Right: Tech Categories -->
-            <div class="stack-categories">
-                <!-- Header part merged into categories column for layout -->
-                <div class="stack-header" data-animate="fade-up">
-                    <span class="section-tag">Tech Stack</span>
-                    <h2 class="section-title">The <span class="gradient-text">Engine</span> Inside</h2>
-                </div>
-
-                <!-- Frontend -->
-                <div class="stack-cat-card" data-animate="fade-up" data-delay="0.1">
-                    <h3 class="cat-title">Frontend</h3>
-                    <div class="cat-items">
-                        <div class="tech-chip"><img src="assets/react.png" alt="React"
-                                onerror="this.style.display='none'"><span>React</span></div>
-                        <div class="tech-chip"><img src="assets/html-5.png" alt="HTML5"
-                                onerror="this.style.display='none'"><span>HTML5</span></div>
-                        <div class="tech-chip"><img src="assets/java-script.png" alt="JavaScript"
-                                onerror="this.style.display='none'"><span>JavaScript</span></div>
-                        <div class="tech-chip">
-                            <div class="tech-text-icon">TW</div><span>Tailwind</span>
-                        </div>
+            <!-- Backend -->
+            <div class="stack-cat-card" data-animate="fade-up" data-delay="0.2">
+                <h3 class="cat-title">Backend</h3>
+                <div class="cat-items">
+                    <div class="tech-chip"><img src="assets/node-js.png" alt="Node.js"
+                            onerror="this.style.display='none'"><span>Node.js</span></div>
+                    <div class="tech-chip"><img src="assets/express.png" alt="Express"
+                            onerror="this.style.display='none'"><span>Express</span></div>
+                    <div class="tech-chip"><img src="assets/postgre.png" alt="PostgreSQL"
+                            onerror="this.style.display='none'"><span>PostgreSQL</span></div>
+                    <div class="tech-chip">
+                        <div class="tech-text-icon">API</div><span>REST APIs</span>
                     </div>
                 </div>
+            </div>
 
-                <!-- Backend -->
-                <div class="stack-cat-card" data-animate="fade-up" data-delay="0.2">
-                    <h3 class="cat-title">Backend</h3>
-                    <div class="cat-items">
-                        <div class="tech-chip"><img src="assets/node-js.png" alt="Node.js"
-                                onerror="this.style.display='none'"><span>Node.js</span></div>
-                        <div class="tech-chip"><img src="assets/express.png" alt="Express"
-                                onerror="this.style.display='none'"><span>Express</span></div>
-                        <div class="tech-chip"><img src="assets/postgre.png" alt="PostgreSQL"
-                                onerror="this.style.display='none'"><span>PostgreSQL</span></div>
-                        <div class="tech-chip">
-                            <div class="tech-text-icon">API</div><span>REST APIs</span>
-                        </div>
+            <!-- Others -->
+            <div class="stack-cat-card" data-animate="fade-up" data-delay="0.3">
+                <h3 class="cat-title">Others</h3>
+                <div class="cat-items">
+                    <div class="tech-chip"><img src="assets/flames.png" alt="Firebase"
+                            onerror="this.style.display='none'"><span>Firebase</span></div>
+                    <div class="tech-chip">
+                        <div class="tech-text-icon">AUTH</div><span>Auth</span>
                     </div>
-                </div>
-
-                <!-- Others -->
-                <div class="stack-cat-card" data-animate="fade-up" data-delay="0.3">
-                    <h3 class="cat-title">Others</h3>
-                    <div class="cat-items">
-                        <div class="tech-chip"><img src="assets/flames.png" alt="Firebase"
-                                onerror="this.style.display='none'"><span>Firebase</span></div>
-                        <div class="tech-chip">
-                            <div class="tech-text-icon">AUTH</div><span>Auth</span>
-                        </div>
-                        <div class="tech-chip">
-                            <div class="tech-text-icon">PAY</div><span>Payments</span>
-                        </div>
-                        <div class="tech-chip">
-                            <div class="tech-text-icon">UX</div><span>Performance</span>
-                        </div>
+                    <div class="tech-chip">
+                        <div class="tech-text-icon">PAY</div><span>Payments</span>
+                    </div>
+                    <div class="tech-chip">
+                        <div class="tech-text-icon">UX</div><span>Performance</span>
                     </div>
                 </div>
             </div>
