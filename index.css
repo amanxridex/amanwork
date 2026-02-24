@@ -124,8 +124,9 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 100px;
-  /* Accounts for nav */
+  padding-top: 160px;
+  /* ← CHANGED: Was 160px, now 220px */
+  padding-bottom: 60px;
   background: var(--hero-bg);
 }
 
@@ -146,7 +147,7 @@ a {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(10rem, 25vw, 24rem);
   font-weight: 800;
-  color: rgba(255, 255, 255, 0.05);
+  color: rgba(254, 254, 254, 0.945);
   /* Subtle white in dark mode */
   line-height: 0.8;
   letter-spacing: -0.05em;
@@ -278,18 +279,136 @@ a {
   font-weight: 500;
 }
 
+/* Remove blue background and add flip effect */
 .profile-card-container {
   width: clamp(260px, 25vw, 320px);
   height: clamp(260px, 25vw, 320px);
   margin-bottom: 32px;
   border-radius: 48px;
-  background-color: #6366f1;
+  background: transparent;
+  /* REMOVED BLUE BACKGROUND */
   position: relative;
+  perspective: 1000px;
+  /* For 3D flip */
+  cursor: pointer;
+}
+
+/* Flip card inner container */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  border-radius: 48px;
   box-shadow: 0 40px 80px rgba(99, 102, 241, 0.2);
+}
+
+/* Flip on hover */
+.profile-card-container:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front and back sides */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 48px;
   overflow: hidden;
+  background: #1a1a2e;
+  /* Dark background instead of blue */
   display: flex;
   align-items: flex-end;
   justify-content: center;
+}
+
+/* Front side */
+.flip-card-front {
+  z-index: 2;
+}
+
+/* Back side - rotated */
+.flip-card-back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+/* Profile image styling */
+.profile-img-new {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 48px;
+}
+
+/* Reduce space between CTA and marquee */
+/* REPLACE your existing .hero-cta-new (around line 290-305) with this: */
+.hero-cta-new {
+  display: inline-flex;
+  align-items: center;
+  padding: 18px 40px;
+  background: var(--hero-accent);
+  border: 2px solid transparent;
+  box-shadow: 0 0 0 6px rgba(255, 215, 0, 0.1), 0 10px 20px rgba(255, 215, 0, 0.15);
+  border-radius: 50px;
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  /* ← ADD THIS */
+}
+
+/* ADD this new animation rule after .hero-cta-new */
+.hero-cta-new::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.6),
+      transparent);
+  animation: shine 2.5s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+/* Keep your existing hover effect */
+.hero-cta-new:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 8px rgba(255, 215, 0, 0.15), 0 15px 30px rgba(255, 215, 0, 0.25);
+}
+
+/* Make marquee closer to hero */
+.marquee-container {
+  padding: 80px 0;
+  /* REDUCED from 40px */
+  background: var(--card-bg);
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  margin-top: -20px;
+  /* NEGATIVE MARGIN to pull up */
 }
 
 .profile-img-new {
