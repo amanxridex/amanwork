@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     initParticleCursor();
+    initMobileTouchFeedback();
     initMobileNav();
     initScrollAnimations();
     initScrollParallax();
@@ -80,6 +81,70 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollProgress();
     initShapeScrollParallax();
 });
+
+/* ---------------------------------------------------------
+   MOBILE TOUCH FEEDBACK
+--------------------------------------------------------- */
+function initMobileTouchFeedback() {
+    if (!window.matchMedia('(pointer: coarse)').matches) return;
+
+    const rippleLayer = document.createElement('div');
+    rippleLayer.className = 'touch-ripple-layer';
+    document.body.appendChild(rippleLayer);
+
+    const interactiveSelector = [
+        'a',
+        'button',
+        '.work-card',
+        '.stack-item',
+        '.hero-cta-new',
+        '.contact-link.large',
+        '.nav-container'
+    ].join(',');
+
+    let activeEl = null;
+    let scrollTimer = null;
+
+    const spawnRipple = (x, y) => {
+        const ripple = document.createElement('span');
+        ripple.className = 'touch-ripple';
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+        rippleLayer.appendChild(ripple);
+        ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
+    };
+
+    const clearActive = () => {
+        if (!activeEl) return;
+        activeEl.classList.remove('touch-active');
+        activeEl = null;
+    };
+
+    document.addEventListener('touchstart', (e) => {
+        const touch = e.touches[0];
+        if (!touch) return;
+
+        spawnRipple(touch.clientX, touch.clientY);
+        clearActive();
+
+        const target = e.target.closest(interactiveSelector);
+        if (target) {
+            activeEl = target;
+            activeEl.classList.add('touch-active');
+        }
+    }, { passive: true });
+
+    document.addEventListener('touchend', clearActive, { passive: true });
+    document.addEventListener('touchcancel', clearActive, { passive: true });
+
+    window.addEventListener('touchmove', () => {
+        document.body.classList.add('touch-scrolling');
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+            document.body.classList.remove('touch-scrolling');
+        }, 130);
+    }, { passive: true });
+}
 
 /* ─────────────────────────────────────────
    SCROLL PROGRESS BAR
