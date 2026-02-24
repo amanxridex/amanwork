@@ -276,17 +276,26 @@ function initSmoothReveal() {
 
 /* ─── HERO TEXT SPLIT ─── */
 function initTextSplit() {
-    const title = document.querySelector('.hero-title-new');
-    if (!title) return;
-    const words = title.innerHTML.split(' ');
-    title.innerHTML = words.map((w, i) => `<span class="word-wrap" style="--i:${i}"><span class="word">${w}</span></span>`).join(' ');
-
+    // Only animate the subtitle typewriter — skip splitting the title innerHTML
+    // because it contains child <span> elements (italic-serif) that would break
     const sub = document.querySelector('.hero-subtitle-new');
     if (sub) {
         const text = sub.textContent; sub.textContent = ''; sub.style.opacity = 1;
         let j = 0;
         const type = () => { if (j < text.length) { sub.textContent += text[j++]; setTimeout(type, 40 + Math.random() * 20); } };
         setTimeout(type, 800);
+    }
+
+    // Animate title with a simple fade-up instead of word-split
+    const title = document.querySelector('.hero-title-new');
+    if (title) {
+        title.style.opacity = '0';
+        title.style.transform = 'translateY(30px)';
+        title.style.transition = 'opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)';
+        setTimeout(() => {
+            title.style.opacity = '1';
+            title.style.transform = 'translateY(0)';
+        }, 150);
     }
 }
 
