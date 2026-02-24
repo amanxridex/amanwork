@@ -1592,61 +1592,193 @@ body.menu-open {
   overflow: hidden;
   touch-action: none;
 }
-/* ═══════════════════════════════════════════
-   ENHANCED ANIMATIONS — Particle Cursor, 3D Cards, Reveals
-   ═══════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════
+   COHESION-LEVEL ANIMATIONS — Smooth scroll, clip reveals,
+   3D cards, subtitle ticker, shape scroll parallax
+   ═══════════════════════════════════════════════════════ */
 
 /* ─── Scroll Progress Bar ─── */
 #scroll-bar {
     position: fixed;
     top: 0; left: 0;
-    height: 2px;
+    height: 2.5px;
+    width: 100%;
     background: linear-gradient(90deg, gold, #ff5722, #6366f1);
-    width: 0%;
+    transform: scaleX(0);
+    transform-origin: left;
     z-index: 99998;
-    transition: width 0.1s linear;
-    box-shadow: 0 0 8px rgba(255,215,0,0.6);
+    transition: transform 0.05s linear;
+    box-shadow: 0 0 10px rgba(255,215,0,0.5);
 }
 
-/* ─── Hero Word Split Animation ─── */
-.word-wrap {
+/* ─── Hero Title Entrance ─── */
+.hero-title-new {
+    opacity: 0;
+    transform: translateY(28px);
+    animation: heroTitleIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+}
+
+@keyframes heroTitleIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Subtitle Ticker ─── */
+.hero-subtitle-new {
     display: inline-block;
     overflow: hidden;
-    vertical-align: bottom;
+    opacity: 1 !important;
+    transform: translateY(0);
+    transition: transform 0.45s cubic-bezier(0.76,0,0.24,1), opacity 0.45s ease;
 }
 
-.word {
-    display: inline-block;
-    transform: translateY(110%);
-    animation: wordReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: calc(var(--i) * 0.12s + 0.2s);
+/* ─── Profile Card Entrance ─── */
+.profile-card-container {
+    opacity: 0;
+    transform: translateY(32px) scale(0.92);
+    animation: profileIn 1s cubic-bezier(0.16,1,0.3,1) 0.5s forwards;
 }
 
-@keyframes wordReveal {
-    to { transform: translateY(0); }
+@keyframes profileIn {
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ─── Social Proof + CTA Entrance ─── */
+.social-proof {
+    opacity: 0;
+    animation: fadeSlideUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.85s forwards;
+}
+
+.hero-cta-new {
+    opacity: 0;
+    animation: fadeSlideUp 0.8s cubic-bezier(0.16,1,0.3,1) 1.05s forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Hero CTA ripple ─── */
+.hero-cta-new::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(99,102,241,0.18), transparent 70%);
+    transform: scale(0);
+    transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    border-radius: inherit;
+}
+.hero-cta-new:hover::before { transform: scale(2.2); }
+
+/* ─── Shapes scroll drift via CSS var ─── */
+.shape {
+    transition: transform 0.1s linear;
+}
+
+/* ─── Scroll Animations — Cohesion clip-path style ─── */
+[data-animate="fade-up"],
+[data-animate="slide-up"] {
+    opacity: 0;
+    transform: translateY(48px);
+    transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1),
+                transform 0.9s cubic-bezier(0.16,1,0.3,1);
+}
+
+[data-animate="scale-in"] {
+    opacity: 0;
+    transform: scale(0.88);
+    transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1),
+                transform 0.9s cubic-bezier(0.16,1,0.3,1);
+}
+
+[data-animate="stagger-up"] {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
+                transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+
+[data-animate].visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ─── Stagger children ─── */
+[data-animate="stagger-up"].visible .stat-item {
+    animation: statIn 0.6s cubic-bezier(0.16,1,0.3,1) both;
+}
+.stat-item:nth-child(1) { animation-delay: 0.05s; }
+.stat-item:nth-child(2) { animation-delay: 0.15s; }
+.stat-item:nth-child(3) { animation-delay: 0.25s; }
+.stat-item:nth-child(4) { animation-delay: 0.35s; }
+
+@keyframes statIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Section Header Clip-path Reveal ─── */
+.reveal-header {
+    overflow: hidden;
+}
+
+.reveal-header .section-tag,
+.reveal-header .section-title {
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.85s cubic-bezier(0.16,1,0.3,1),
+                opacity 0.85s cubic-bezier(0.16,1,0.3,1);
+}
+
+.reveal-header .section-title {
+    transition-delay: 0.12s;
+}
+
+.reveal-header.revealed .section-tag,
+.reveal-header.revealed .section-title {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ─── Heading Reveal ─── */
+.heading-reveal {
+    overflow: hidden;
+}
+.heading-reveal {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+}
+.heading-reveal.heading-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ─── Project Cards 3D ─── */
-.card-3d {
+.work-card {
     opacity: 0;
-    transform: perspective(1000px) translateY(60px) scale(0.94);
-    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), 
-                transform 0.7s cubic-bezier(0.16,1,0.3,1),
-                border-color 0.3s;
+    transform: translateY(56px) scale(0.96);
+    transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1),
+                transform 0.75s cubic-bezier(0.16,1,0.3,1),
+                border-color 0.3s, box-shadow 0.3s;
     will-change: transform, opacity;
     transform-style: preserve-3d;
     position: relative;
 }
 
-.card-3d.card-visible {
+.work-card.card-visible {
     opacity: 1;
-    transform: perspective(1000px) translateY(0) scale(1);
+    transform: translateY(0) scale(1);
 }
 
-/* Shimmering border on hover */
-.card-3d:hover {
+.work-card:hover {
     border-color: rgba(255,215,0,0.4) !important;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 30px rgba(255,215,0,0.08), inset 0 0 0 1px rgba(255,215,0,0.15);
+    box-shadow: 0 32px 64px rgba(0,0,0,0.55),
+                0 0 0 1px rgba(255,215,0,0.12),
+                inset 0 0 40px rgba(255,215,0,0.03) !important;
 }
 
 /* Card shine overlay */
@@ -1655,177 +1787,93 @@ body.menu-open {
     inset: 0;
     border-radius: inherit;
     pointer-events: none;
-    z-index: 10;
-    transition: background 0.1s ease;
+    z-index: 5;
+    transition: background 0.08s ease;
 }
 
-/* Card number badge */
+/* Card number */
 .card-num {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 3px;
     color: var(--accent);
-    opacity: 0.6;
-    margin-bottom: 12px;
+    opacity: 0.55;
+    margin-bottom: 10px;
     text-transform: uppercase;
 }
 
-/* Animated card image overlay */
-.card-overlay {
-    background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(99,102,241,0.4)) !important;
-}
-
-/* Featured card extra glow */
+/* Featured card subtle glow pulse */
 .work-card.featured.card-visible {
-    animation: featuredGlow 3s ease-in-out infinite alternate;
+    animation: featuredPulse 4s ease-in-out infinite alternate;
 }
-
-@keyframes featuredGlow {
+@keyframes featuredPulse {
     from { box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
-    to { box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(255,215,0,0.06); }
+    to { box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 50px rgba(255,215,0,0.05); }
 }
 
-/* ─── Section Header Reveal ─── */
-.reveal-header {
-    clip-path: inset(0 0 100% 0);
-    transition: clip-path 0.9s cubic-bezier(0.16,1,0.3,1);
-}
-.reveal-header.revealed {
-    clip-path: inset(0 0 0% 0);
-}
-
-/* ─── Improved Scroll Animations ─── */
-[data-animate="fade-up"],
-[data-animate="slide-up"],
-[data-animate="scale-in"],
-[data-animate="stagger-up"] {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
-}
-
-[data-animate="scale-in"] {
-    transform: scale(0.9);
-}
-
-[data-animate].visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-/* ─── Stagger children for stagger-up elements ─── */
-[data-animate="stagger-up"].visible .stat-item {
-    animation: statReveal 0.5s cubic-bezier(0.16,1,0.3,1) both;
-}
-
-.stat-item:nth-child(1) { animation-delay: 0.05s; }
-.stat-item:nth-child(2) { animation-delay: 0.15s; }
-.stat-item:nth-child(3) { animation-delay: 0.25s; }
-.stat-item:nth-child(4) { animation-delay: 0.35s; }
-
-@keyframes statReveal {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ─── Enhanced Stack Items ─── */
-.stack-item {
-    transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), background 0.3s, border-color 0.3s, box-shadow 0.3s !important;
-}
-.stack-item:hover {
-    transform: translateX(12px) !important;
-    box-shadow: -4px 0 20px rgba(255,215,0,0.12);
-}
-
-/* ─── Marquee Enhanced ─── */
-.marquee-container {
-    background: linear-gradient(90deg, #0a0a0a, #111, #0a0a0a) !important;
-}
-
-/* ─── Contact orb pulsing ─── */
-.contact-orb {
-    animation: orbPulse 4s ease-in-out infinite !important;
-}
-
-@keyframes orbPulse {
-    0%, 100% { transform: scale(1); opacity: 0.5; }
-    50% { transform: scale(1.1); opacity: 0.8; }
-}
-
-/* ─── Hero CTA ripple ─── */
-.hero-cta-new {
-    position: relative;
-    overflow: hidden;
-}
-.hero-cta-new::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at center, rgba(99,102,241,0.2), transparent 70%);
-    transform: scale(0);
-    transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
-}
-.hero-cta-new:hover::before {
-    transform: scale(2);
-}
-
-/* ─── Nav transition for dark sections ─── */
-.nav-container {
-    transition: background 0.4s ease, box-shadow 0.4s ease !important;
-}
-
-/* ─── Smooth hero profile image entrance ─── */
-.profile-card-container {
-    animation: profileBounce 1s cubic-bezier(0.16,1,0.3,1) 0.5s both;
-}
-
-@keyframes profileBounce {
-    from { opacity: 0; transform: translateY(30px) scale(0.9); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-/* ─── Hero CTA entrance ─── */
-.hero-cta-new {
-    animation: ctaFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 1.4s both;
-}
-
-@keyframes ctaFadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ─── Social proof entrance ─── */
-.social-proof {
-    animation: ctaFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 1.1s both;
-}
-
-/* ─── Card image zoom on hover — more dramatic ─── */
+/* ─── Image zoom — more dramatic ─── */
 .work-card:hover .card-image img {
-    transform: scale(1.1) !important;
+    transform: scale(1.08) !important;
     transition: transform 0.7s cubic-bezier(0.16,1,0.3,1) !important;
 }
 
-/* ─── View project button pop ─── */
-.view-project {
-    letter-spacing: 0.5px;
-    backdrop-filter: blur(8px) !important;
-    background: rgba(255,255,255,0.92) !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+/* ─── View project button ─── */
+.card-overlay {
+    background: linear-gradient(135deg, rgba(0,0,0,0.65), rgba(99,102,241,0.35)) !important;
 }
 
-/* ─── About image hover color ─── */
+.view-project {
+    backdrop-filter: blur(10px) !important;
+    background: rgba(255,255,255,0.9) !important;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    letter-spacing: 0.3px;
+}
+
+/* ─── About image color on hover ─── */
+.about-img {
+    transition: filter 0.7s ease;
+}
 .about-image-wrapper:hover .about-img {
     filter: grayscale(0%) !important;
-    transition: filter 0.6s ease;
-}
-.about-img {
-    transition: filter 0.6s ease;
 }
 
+/* ─── Stack items ─── */
+.stack-item {
+    transition: transform 0.35s cubic-bezier(0.16,1,0.3,1),
+                background 0.3s, border-color 0.3s, box-shadow 0.3s !important;
+}
+.stack-item:hover {
+    transform: translateX(14px) !important;
+    box-shadow: -4px 0 24px rgba(255,215,0,0.1) !important;
+}
 
+/* ─── Contact orb ─── */
+.contact-orb {
+    animation: orbPulse 4s ease-in-out infinite !important;
+}
+@keyframes orbPulse {
+    0%, 100% { transform: scale(1); opacity: 0.45; }
+    50% { transform: scale(1.12); opacity: 0.75; }
+}
+
+/* ─── Marquee enhanced ─── */
+.marquee-container {
+    background: linear-gradient(90deg, #090909, #111, #090909) !important;
+}
+
+/* ─── Smooth page load body fade ─── */
+body {
+    animation: bodyFadeIn 0.5s ease forwards;
+}
+@keyframes bodyFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ─── Footer tagline ─── */
 .footer-tagline {
     color: var(--text-secondary);
     font-size: 0.8rem;
-    opacity: 0.6;
+    opacity: 0.5;
 }
