@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMagneticButtons();
     initScrollProgress();
     initShapeScrollParallax();
+    initStackCloudParallax();
 });
 
 /* ---------------------------------------------------------
@@ -282,6 +283,60 @@ function initShapeScrollParallax() {
             shape.style.setProperty('--scroll-y', `${y}px`);
         });
     }, { passive: true });
+}
+
+/* -----------------------------------------
+   STACK CLOUD SCROLL PARALLAX
+----------------------------------------- */
+function initStackCloudParallax() {
+    const cloud = document.querySelector('.stack-cloud');
+    if (!cloud) return;
+
+    const items = cloud.querySelectorAll('.stack-item[data-speed]');
+    if (!items.length) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const compactLayout = window.matchMedia('(max-width: 768px)');
+    let ticking = false;
+
+    const setShift = () => {
+        if (reduceMotion.matches || compactLayout.matches) {
+            items.forEach(item => item.style.setProperty('--scroll-shift', '0px'));
+            ticking = false;
+            return;
+        }
+
+        const rect = cloud.getBoundingClientRect();
+        const viewportCenter = window.innerHeight / 2;
+        const cloudCenter = rect.top + rect.height / 2;
+        const offsetFromCenter = cloudCenter - viewportCenter;
+
+        items.forEach(item => {
+            const speed = parseFloat(item.dataset.speed || '0.1');
+            const shift = Math.max(-28, Math.min(28, -offsetFromCenter * speed * 0.22));
+            item.style.setProperty('--scroll-shift', `${shift.toFixed(2)}px`);
+        });
+
+        ticking = false;
+    };
+
+    const requestUpdate = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(setShift);
+    };
+
+    requestUpdate();
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+
+    if (reduceMotion.addEventListener) {
+        reduceMotion.addEventListener('change', requestUpdate);
+        compactLayout.addEventListener('change', requestUpdate);
+    } else {
+        reduceMotion.addListener(requestUpdate);
+        compactLayout.addListener(requestUpdate);
+    }
 }
 
 /* ─────────────────────────────────────────

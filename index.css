@@ -1957,3 +1957,174 @@ body {
     opacity: 0;
   }
 }
+
+/* Floating Stack Cloud Refresh */
+.stack-cloud-wrap {
+  margin-top: 16px;
+  position: relative;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 15% 18%, rgba(255, 215, 0, 0.15), transparent 30%),
+    radial-gradient(circle at 86% 12%, rgba(99, 102, 241, 0.2), transparent 34%),
+    linear-gradient(180deg, rgba(14, 14, 14, 0.96), rgba(7, 7, 7, 0.92));
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+}
+
+.stack-cloud-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.2;
+}
+
+.stack-cloud {
+  position: relative;
+  min-height: 540px;
+  padding: 20px;
+}
+
+.stack-cloud .stack-item {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transform: translate3d(0, var(--scroll-shift, 0px), 0) !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.stack-cloud .stack-item:hover {
+  transform: translate3d(0, var(--scroll-shift, 0px), 0) !important;
+}
+
+.stack-cloud .stack-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.66);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  animation: stackChipFloat var(--duration, 8s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+@keyframes stackChipFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+.stack-cloud .stack-item:hover .stack-chip {
+  transform: translateY(-3px) scale(1.04);
+  border-color: rgba(255, 215, 0, 0.44);
+  background: rgba(15, 15, 15, 0.78);
+  box-shadow: 0 20px 36px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(255, 215, 0, 0.18);
+}
+
+.stack-cloud .stack-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.stack-cloud .stack-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 6px;
+}
+
+.stack-cloud .stack-icon-text {
+  padding: 0 8px;
+  min-width: 34px;
+  width: auto;
+}
+
+.stack-cloud .stack-item span {
+  color: #f5f5f5;
+  font-size: 0.92rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .stack-cloud {
+    min-height: 480px;
+  }
+
+  .stack-cloud .stack-chip {
+    padding: 10px 14px;
+  }
+
+  .stack-cloud .stack-item span {
+    font-size: 0.86rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .stack-cloud-wrap {
+    border-radius: 22px;
+  }
+
+  .stack-cloud {
+    min-height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    padding: 18px;
+  }
+
+  .stack-cloud .stack-item {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none !important;
+    flex: 1 1 calc(50% - 12px);
+    min-width: 150px;
+  }
+
+  .stack-cloud .stack-chip {
+    width: 100%;
+    justify-content: flex-start;
+    animation: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .stack-cloud .stack-item {
+    flex: 1 1 100%;
+  }
+}
+
+@media (pointer: coarse) {
+  .stack-cloud .stack-item.touch-active .stack-chip {
+    transform: scale(1.03);
+    border-color: rgba(255, 215, 0, 0.4);
+  }
+}
