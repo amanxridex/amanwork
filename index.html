@@ -10,29 +10,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,600;1,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,600;1,700&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
     <!-- Navigation -->
     <nav class="nav-container">
         <div class="nav-links">
             <a href="#hero" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#stack">Stack</a>
-            <a href="#services">Services</a>
-            <a href="#work">Projects</a>
-            <a href="#contact">Contact</a>
+            <a href="#work" data-cursor="hover">Work</a>
+            <a href="#about" data-cursor="hover">About</a>
+            <a href="#stack" data-cursor="hover">Stack</a>
+            <a href="#contact" data-cursor="hover">Contact</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - New Design -->
     <section class="hero-new" id="hero">
-
         <!-- Large Background Text scrolling in middle -->
         <div class="hero-bg-text">
-            <div class="bg-text-row" id="bgText1">BROOK LARRY</div>
+            <div class="bg-text-row" id="bgText1">AMAN MISHRA</div>
         </div>
 
         <!-- 3D Floating Shapes -->
@@ -76,17 +78,14 @@
 
         <!-- Main Content -->
         <div class="hero-center">
-
             <div class="hero-text">
                 <h1 class="hero-title-new">Hi, I'm <span class="italic-serif">Aman!</span></h1>
                 <p class="hero-subtitle-new">Collaborative Team Player</p>
             </div>
 
             <div class="profile-card-container">
-                <div class="profile-card">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=800&fit=crop&q=80"
-                        alt="Aman" class="profile-img-new">
-                </div>
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=800&fit=crop&q=80"
+                    alt="Aman" class="profile-img-new">
             </div>
 
             <div class="social-proof">
@@ -98,7 +97,7 @@
                     <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop"
                         alt="Client 3">
                 </div>
-                <span class="client-text">80+ Happy Clients</span>
+                <span class="client-text">14+ Happy Clients</span>
             </div>
 
             <a href="#contact" class="hero-cta-new">
@@ -107,7 +106,48 @@
         </div>
     </section>
 
-    <!-- Rest of Document from previous state -->
+    <!-- Marquee Section -->
+    <div class="marquee-container">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span>React</span>
+                <span class="separator">✦</span>
+                <span>Node.js</span>
+                <span class="separator">✦</span>
+                <span>PostgreSQL</span>
+                <span class="separator">✦</span>
+                <span>Tailwind</span>
+                <span class="separator">✦</span>
+                <span>UI/UX</span>
+                <span class="separator">✦</span>
+                <span>Payments</span>
+                <span class="separator">✦</span>
+                <span>Startup</span>
+                <span class="separator">✦</span>
+                <span>Christ University</span>
+                <span class="separator">✦</span>
+            </div>
+            <div class="marquee-content" aria-hidden="true">
+                <span>React</span>
+                <span class="separator">✦</span>
+                <span>Node.js</span>
+                <span class="separator">✦</span>
+                <span>PostgreSQL</span>
+                <span class="separator">✦</span>
+                <span>Tailwind</span>
+                <span class="separator">✦</span>
+                <span>UI/UX</span>
+                <span class="separator">✦</span>
+                <span>Payments</span>
+                <span class="separator">✦</span>
+                <span>Startup</span>
+                <span class="separator">✦</span>
+                <span>Christ University</span>
+                <span class="separator">✦</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Work Section -->
     <section class="work" id="work">
         <div class="section-header" data-animate="fade-up">
@@ -116,7 +156,7 @@
         </div>
 
         <div class="work-grid">
-            <article class="work-card featured" data-animate="slide-up">
+            <article class="work-card featured" data-cursor="hover" data-animate="slide-up">
                 <div class="card-image">
                     <div class="image-reveal"></div>
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop"
@@ -133,10 +173,285 @@
                     <h3>Nexus Ticketing</h3>
                     <p>End-to-end event ticketing platform with Razorpay integration, Firebase auth, and real-time seat
                         booking.</p>
+                    <div class="card-tags">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>PostgreSQL</span>
+                        <span>Razorpay</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="work-card" data-cursor="hover" data-animate="slide-up" data-delay="0.1">
+                <div class="card-image">
+                    <div class="image-reveal"></div>
+                    <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop"
+                        alt="Ridex">
+                    <div class="card-overlay">
+                        <span class="view-project">View Project →</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-category">Startup</span>
+                        <span class="card-year">2023</span>
+                    </div>
+                    <h3>Ridex Cab Services</h3>
+                    <p>Founded and built a cab service platform. Complete booking system with driver allocation and
+                        payment handling.</p>
+                    <div class="card-tags">
+                        <span>Business</span>
+                        <span>Operations</span>
+                        <span>Tech</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="work-card" data-cursor="hover" data-animate="slide-up" data-delay="0.2">
+                <div class="card-image">
+                    <div class="image-reveal"></div>
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop"
+                        alt="Trix">
+                    <div class="card-overlay">
+                        <span class="view-project">View Project →</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-category">Brand</span>
+                        <span class="card-year">2022</span>
+                    </div>
+                    <h3>Trix Namkeen</h3>
+                    <p>Built a snack brand from scratch. Brand identity, packaging design, and e-commerce platform.</p>
+                    <div class="card-tags">
+                        <span>Branding</span>
+                        <span>E-commerce</span>
+                        <span>Marketing</span>
+                    </div>
                 </div>
             </article>
         </div>
     </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-visual" data-animate="parallax">
+                <div class="about-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&h=800&fit=crop"
+                        alt="About" class="about-img">
+                    <div class="about-frame"></div>
+                    <div class="about-badge">
+                        <span class="badge-number">05</span>
+                        <span class="badge-text">Years<br>Experience</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <span class="section-tag" data-animate="fade-up">About Me</span>
+                <h2 class="about-title" data-animate="fade-up" data-delay="0.1">
+                    From sales floors<br>to <span class="highlight">code editors</span>
+                </h2>
+
+                <div class="about-text" data-animate="fade-up" data-delay="0.2">
+                    <p>
+                        Started my journey in sales — crushing targets at <strong>Apna</strong> and <strong>Vimal
+                            Fire</strong>.
+                        Learned the art of understanding people, building relationships, and closing deals.
+                    </p>
+                    <p>
+                        But I wanted to build. Founded <strong>Ridex Cab Services</strong> and <strong>Trix
+                            Namkeen</strong> —
+                        learned that ideas are cheap, execution is everything.
+                    </p>
+                    <p>
+                        Now I combine that business acumen with technical skills.
+                        <strong>Christ University</strong> grad, self-taught developer,
+                        obsessed with creating products that look beautiful and work flawlessly.
+                    </p>
+                </div>
+
+                <div class="about-stats" data-animate="stagger-up" data-delay="0.3">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-label">Years Exp</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="3">0</span>
+                        <span class="stat-label">Startups</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="50">0</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="100">0</span>
+                        <span class="stat-label">% Passion</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stack Section -->
+    <section class="stack" id="stack">
+        <div class="stack-header" data-animate="fade-up">
+            <span class="section-tag">Tech Stack</span>
+            <h2 class="section-title">Tools I <span class="gradient-text">love</span> using</h2>
+        </div>
+
+        <div class="stack-grid" data-animate="stagger-up">
+            <div class="stack-category">
+                <h3>Frontend</h3>
+                <div class="stack-items">
+                    <div class="stack-item" data-cursor="hover">
+                        <div class="stack-icon">⚛️</div>
+                        <span>React</span>
+                    </div>
+                    <div class="stack-item" data-cursor="hover">
+                        <div class="stack-icon">🎨</div>
+                        <span>Tailwind</span>
+                    </div>
+                    <div class="stack-item" data-cursor="hover">
+                        <div class="stack-icon">📜</div>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="stack-item" data-cursor="hover">
+                        <div class="stack-icon">⚡</div>
+                        <span>Next.js</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stack-category">
+                <h3>Backend</h3>
+                <div class="stack-items">
+                    <div class="stack-item" data-cursor="hover">
+                        <div class="stack-icon">🟢</div>
+                        <span>Node.js</span>
+                    </div>
+                    <div class="stack-item" data-cursor="hover">
+                        <div class="stack-icon">🐘</div>
+                        <span>PostgreSQL</span>
+                    </div>
+                    <div class="stack-item" data-cursor="hover">
+                        <div class="stack-icon">🔥</div>
+                        <span>Firebase</span>
+                    </div>
+                    <div class="stack-item" data-cursor="hover">
+                        <div class="stack-icon">🚂</div>
+                        <span>Express</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stack-category">
+                <h3>DevOps & Tools</h3>
+                <div class="stack-items">
+                    <div class="stack-item" data-cursor="hover">
+                        <div class="stack-icon">🚀</div>
+                        <span>Render</span>
+                    </div>
+                    <div class="stack-item" data-cursor="hover">
+                        <div class="stack-icon">🛤️</div>
+                        <span>Railway</span>
+                    </div>
+                    <div class="stack-item" data-cursor="hover">
+                        <div class="stack-icon">💳</div>
+                        <span>Razorpay</span>
+                    </div>
+                    <div class="stack-item" data-cursor="hover">
+                        <div class="stack-icon">🎭</div>
+                        <span>Figma</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stack-category">
+                <h3>Specialty</h3>
+                <div class="stack-items">
+                    <div class="stack-item" data-cursor="hover">
+                        <div class="stack-icon">💰</div>
+                        <span>Payments</span>
+                    </div>
+                    <div class="stack-item" data-cursor="hover">
+                        <div class="stack-icon">🔐</div>
+                        <span>Auth Systems</span>
+                    </div>
+                    <div class="stack-item" data-cursor="hover">
+                        <div class="stack-icon">📱</div>
+                        <span>Responsive</span>
+                    </div>
+                    <div class="stack-item" data-cursor="hover">
+                        <div class="stack-icon">⚡</div>
+                        <span>Performance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-content" data-animate="fade-up">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="contact-title">
+                    Let's build<br>
+                    <span class="gradient-text">something great</span>
+                </h2>
+                <p class="contact-subtitle">
+                    Have a project in mind? Want to collaborate?
+                    Or just want to say hi? I'm always open to interesting conversations.
+                </p>
+
+                <div class="contact-links">
+                    <a href="mailto:hello@aman.dev" class="contact-link large" data-cursor="hover">
+                        <span>hello@aman.dev</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" class="social-link" data-cursor="hover">GitHub</a>
+                    <a href="#" class="social-link" data-cursor="hover">LinkedIn</a>
+                    <a href="#" class="social-link" data-cursor="hover">Twitter</a>
+                    <a href="#" class="social-link" data-cursor="hover">Dribbble</a>
+                </div>
+            </div>
+
+            <div class="contact-visual" data-animate="scale-in" data-delay="0.2">
+                <div class="contact-orb"></div>
+                <div class="contact-text-rotate">
+                    <svg viewBox="0 0 200 200">
+                        <path id="textPath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
+                            fill="none" />
+                        <text>
+                            <textPath href="#textPath">AVAILABLE FOR FREELANCE • LET'S WORK TOGETHER • </textPath>
+                        </text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-top">
+                <span class="footer-logo">AMAN.</span>
+                <span class="footer-year">© 2024</span>
+            </div>
+            <div class="footer-bottom">
+                <p>Designed & Built with passion</p>
+                <p class="footer-location">Bangalore, India</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="index.js"></script>
 </body>
