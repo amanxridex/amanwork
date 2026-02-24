@@ -559,7 +559,10 @@ function initProjectCards() {
         const num = document.createElement('div');
         num.className = 'card-num';
         num.textContent = `0${index + 1}`;
-        card.querySelector('.card-content')?.prepend(num);
+        const cardContent = card.querySelector('.card-content');
+        if (cardContent) {
+            cardContent.prepend(num);
+        }
 
         // 3D tilt
         card.addEventListener('mousemove', e => {
