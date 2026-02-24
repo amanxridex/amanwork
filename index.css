@@ -1546,3 +1546,8 @@ section:not(.hero-new) {
     image-rendering: -webkit-optimize-contrast;
   }
 }
+
+body.menu-open {
+  overflow: hidden;
+  touch-action: none;
+}
