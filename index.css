@@ -1822,3 +1822,10 @@ body.menu-open {
 .about-img {
     transition: filter 0.6s ease;
 }
+
+
+.footer-tagline {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
