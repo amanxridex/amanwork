@@ -348,53 +348,135 @@ a {
 
 /* Reduce space between CTA and marquee */
 /* REPLACE your existing .hero-cta-new (around line 290-305) with this: */
+/* REPLACE your entire .hero-cta-new block with this */
 .hero-cta-new {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   padding: 18px 40px;
-  background: var(--hero-accent);
-  border: 2px solid transparent;
-  box-shadow: 0 0 0 6px rgba(255, 215, 0, 0.1), 0 10px 20px rgba(255, 215, 0, 0.15);
-  border-radius: 50px;
-  color: #000;
   font-family: 'Inter', sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  color: #fff;
+  background: #111;
+  border: none;
+  border-radius: 50px;
   position: relative;
-  overflow: hidden;
-  /* ← ADD THIS */
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 1;
+  overflow: visible;
 }
 
-/* ADD this new animation rule after .hero-cta-new */
+/* Animated rainbow border/shadow */
 .hero-cta-new::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.6),
-      transparent);
-  animation: shine 2.5s infinite;
+  inset: -3px;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #00ff00, #0080ff, #8000ff, #ff0000);
+  background-size: 300% 100%;
+  z-index: -1;
+  animation: rainbow-flow 2s linear infinite;
 }
 
-@keyframes shine {
+/* Moving shadow below */
+.hero-cta-new::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 10%;
+  width: 80%;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #00ff00, #0080ff, #8000ff, #ff0000);
+  background-size: 300% 100%;
+  filter: blur(15px);
+  opacity: 0.8;
+  animation: rainbow-flow 2s linear infinite;
+  z-index: -2;
+}
+
+@keyframes rainbow-flow {
   0% {
-    left: -100%;
+    background-position: 0% 50%;
   }
 
   100% {
-    left: 100%;
+    background-position: 300% 50%;
   }
 }
 
-/* Keep your existing hover effect */
+/* Sparkle animation on the button */
+.hero-cta-new span {
+  position: relative;
+  z-index: 2;
+}
+
+/* Sparkle pseudo element */
+.hero-cta-new span::after {
+  content: '✦';
+  position: absolute;
+  top: -10px;
+  right: -20px;
+  color: #fff;
+  font-size: 12px;
+  animation: sparkle 1.5s ease-in-out infinite;
+  text-shadow: 0 0 10px #fff, 0 0 20px gold;
+}
+
+@keyframes sparkle {
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(180deg);
+  }
+}
+
+/* Second sparkle */
+.hero-cta-new span::before {
+  content: '✦';
+  position: absolute;
+  bottom: -8px;
+  left: -15px;
+  color: gold;
+  font-size: 10px;
+  animation: sparkle2 2s ease-in-out infinite 0.5s;
+  text-shadow: 0 0 10px gold, 0 0 20px #ff8000;
+}
+
+@keyframes sparkle2 {
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(-180deg);
+  }
+}
+
+/* Hover effects */
 .hero-cta-new:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 0 8px rgba(255, 215, 0, 0.15), 0 15px 30px rgba(255, 215, 0, 0.25);
+  transform: scale(1.05);
+}
+
+.hero-cta-new:hover::after {
+  filter: blur(20px);
+  opacity: 1;
+}
+
+.hero-cta-new:active {
+  transform: scale(0.95);
 }
 
 /* Make marquee closer to hero */
@@ -453,26 +535,6 @@ a {
   font-size: 0.85rem;
   color: var(--hero-secondary);
   font-weight: 500;
-}
-
-.hero-cta-new {
-  display: inline-flex;
-  align-items: center;
-  padding: 18px 40px;
-  background: var(--hero-accent);
-  border: 2px solid transparent;
-  box-shadow: 0 0 0 6px rgba(255, 215, 0, 0.1), 0 10px 20px rgba(255, 215, 0, 0.15);
-  border-radius: 50px;
-  color: #000;
-  font-family: 'Inter', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.hero-cta-new:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 0 8px #e0e7ff, 0 15px 30px rgba(99, 102, 241, 0.25);
 }
 
 /* -------------------------------------
