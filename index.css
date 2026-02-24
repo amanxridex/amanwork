@@ -698,6 +698,36 @@ section:not(.hero-new) {
   font-size: 1.5rem;
 }
 
+/* Add this after the existing .stack-icon rule (around line 667) */
+
+.stack-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.stack-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+}
+
+/* Hover effect for image icons */
+.stack-item:hover .stack-icon {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.stack-item:hover .stack-icon img {
+  filter: brightness(1.2);
+}
+
 /* Contact Section */
 .contact-container {
   display: flex;
@@ -989,6 +1019,17 @@ section:not(.hero-new) {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+  }
+
+  /* Add this inside the @media (max-width: 768px) section, after .nav-container */
+
+  .nav-container {
+    position: fixed; /* Add this */
+    top: 16px;
+    right: 16px;
+    left: auto; /* Override the left: 50% */
+    transform: none; /* Override the translateX(-50%) */
+    /* ... rest of properties */
   }
 
   .nav-links {
