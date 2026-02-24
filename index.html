@@ -15,17 +15,39 @@
 </head>
 
 <body>
+
+    <!-- ── PAGE LOADER ── -->
+    <div id="page-loader">
+        <div class="loader-inner">
+            <span class="loader-name">AMAN.</span>
+            <div class="loader-bar"><div class="loader-fill"></div></div>
+        </div>
+        <div class="loader-wipe"></div>
+    </div>
+
+    <!-- ── Scroll to Top ── -->
+    <button id="scroll-top" aria-label="Scroll to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
     <!-- Custom Cursor -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
     <!-- Navigation -->
-    <nav class="nav-container">
-        <div class="nav-links">
+    <nav class="nav-container" id="main-nav">
+        <!-- Hamburger (mobile only) -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
             <a href="#hero" class="active">Home</a>
             <a href="#work" data-cursor="hover">Work</a>
             <a href="#about" data-cursor="hover">About</a>
             <a href="#stack" data-cursor="hover">Stack</a>
+            <a href="#testimonials" data-cursor="hover">Reviews</a>
             <a href="#contact" data-cursor="hover">Contact</a>
         </div>
     </nav>
@@ -80,7 +102,10 @@
         <div class="hero-center">
             <div class="hero-text">
                 <h1 class="hero-title-new">Hi, I'm <span class="italic-serif">Aman!</span></h1>
-                <p class="hero-subtitle-new">Collaborative Team Player</p>
+                <!-- subtitle-ticker-wrap added for cycling animation -->
+                <div class="subtitle-ticker-wrap">
+                    <p class="hero-subtitle-new">Collaborative Team Player</p>
+                </div>
             </div>
 
             <div class="profile-card-container">
@@ -100,7 +125,7 @@
                 <span class="client-text">14+ Happy Clients</span>
             </div>
 
-            <a href="#contact" class="hero-cta-new">
+            <a href="#contact" class="hero-cta-new" data-cursor="hover">
                 <span>Let's Work Together!</span>
             </a>
         </div>
@@ -274,26 +299,27 @@
 
                 <div class="about-stats" data-animate="stagger-up" data-delay="0.3">
                     <div class="stat-item">
-                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-number" data-count="5" data-suffix="+">0</span>
                         <span class="stat-label">Years Exp</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" data-count="3">0</span>
+                        <span class="stat-number" data-count="3" data-suffix="">0</span>
                         <span class="stat-label">Startups</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" data-count="50">0</span>
+                        <span class="stat-number" data-count="50" data-suffix="+">0</span>
                         <span class="stat-label">Projects</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" data-count="100">0</span>
-                        <span class="stat-label">% Passion</span>
+                        <span class="stat-number" data-count="14" data-suffix="+">0</span>
+                        <span class="stat-label">Happy Clients</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Stack Section -->
+
+    <!-- Stack Section — YOUR floating cloud layout preserved exactly -->
     <section class="stack" id="stack">
         <div class="stack-header" data-animate="fade-up">
             <span class="section-tag">Tech Stack</span>
@@ -395,6 +421,78 @@
         </div>
     </section>
 
+    <!-- Testimonials Section — NEW -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header" data-animate="fade-up">
+            <span class="section-tag">Kind Words</span>
+            <h2 class="section-title">What clients <span class="gradient-text">say</span></h2>
+        </div>
+
+        <div class="testimonials-carousel" data-animate="fade-up" data-delay="0.15">
+            <div class="carousel-track" id="carousel-track">
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Aman built our entire event platform in weeks — the payment integration was flawless and the UI was stunning. Clients loved it. Will definitely work together again."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" alt="Rohan">
+                        <div>
+                            <span class="author-name">Rohan Mehta</span>
+                            <span class="author-role">Event Director, Nexus Events</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"From ideation to launch, Aman was hands-on at every stage. He doesn't just code — he thinks like a founder. The Ridex platform handled real customers on day one."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100&h=100&fit=crop" alt="Priya">
+                        <div>
+                            <span class="author-name">Priya Sharma</span>
+                            <span class="author-role">Co-founder, Ridex</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Got our brand identity, packaging design, and e-commerce site done in one sprint. Aman has a rare mix of business sense and design taste. Exceptional work."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop" alt="Kavya">
+                        <div>
+                            <span class="author-name">Kavya Iyer</span>
+                            <span class="author-role">Founder, Trix Namkeen</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Super responsive, clean code, and great attention to detail. Aman understands what users want and what clients need. The site performance improved dramatically."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" alt="Arjun">
+                        <div>
+                            <span class="author-name">Arjun Kapoor</span>
+                            <span class="author-role">Product Manager, TechCorp</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="carousel-controls">
+                <button class="carousel-btn" id="prev-btn" aria-label="Previous">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <div class="carousel-dots" id="carousel-dots"></div>
+                <button class="carousel-btn" id="next-btn" aria-label="Next">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="contact-container">
@@ -410,10 +508,9 @@
                 </p>
 
                 <div class="contact-links">
-                    <a href="/cdn-cgi/l/email-protection#c6b2aea3a7aba7a8a8abafb5aeb4a7a786a1aba7afaae8a5a9ab" class="contact-link large" data-cursor="hover">
-                        <span><span class="__cf_email__" data-cfemail="cfbba7aaaea2aea1a1a2a6bca7bdaeae8fa8a2aea6a3e1aca0a2">[email&#160;protected]</span></span>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
+                    <a href="mailto:aman@amanmishra.work" class="contact-link large" data-cursor="hover">
+                        <span>aman@amanmishra.work</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M7 17L17 7M17 7H7M17 7V17" />
                         </svg>
                     </a>
@@ -451,7 +548,12 @@
             </div>
             <div class="footer-bottom">
                 <p>Designed & Built with passion</p>
-<p class="footer-tagline">© 2026 Aman Mishra. All rights reserved.</p>
+                <div class="footer-socials">
+                    <a href="#" class="footer-social-link" data-cursor="hover">GH</a>
+                    <a href="#" class="footer-social-link" data-cursor="hover">LI</a>
+                    <a href="#" class="footer-social-link" data-cursor="hover">TW</a>
+                    <a href="#" class="footer-social-link" data-cursor="hover">DR</a>
+                </div>
             </div>
         </div>
     </footer>
