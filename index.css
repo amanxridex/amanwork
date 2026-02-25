@@ -1493,12 +1493,85 @@ section:not(.hero-new) {
     display: none;
   }
 
-  .nav-links {
-    display: none;
+  .nav-container {
+    top: 20px;
+    width: 90%;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
   }
 
-  .bg-text-row {
-    font-size: 8rem;
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 4px;
+    margin-left: auto;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--hero-text);
+    transition: all 0.3s ease;
+  }
+
+  /* Hamburger Active Animation */
+  .nav-container.active .hamburger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .nav-container.active .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-container.active .hamburger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Hidden Links Initially */
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(15, 15, 15, 0.98);
+    flex-direction: column;
+    padding: 20px 0;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Show links when active */
+  .nav-links.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(10px);
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.1rem;
+    border-radius: 0;
+  }
+
+  .nav-links a.active {
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--hero-accent);
+    border-left: 4px solid var(--hero-accent);
   }
 
   .profile-card-container {
