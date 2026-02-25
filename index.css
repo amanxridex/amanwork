@@ -877,6 +877,66 @@ section:not(.hero-new) {
   animation-delay: -3s;
 }
 
+/* Mobile Optimization for Work Grid 2x2 */
+@media (max-width: 768px) {
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .work-grid .card {
+    max-width: 100%;
+    height: 260px;
+  }
+
+  .project-abbr {
+    font-size: 2.2rem;
+  }
+
+  .work-grid .front-content {
+    padding: 12px;
+  }
+
+  .work-grid .badge {
+    font-size: 0.65rem;
+    padding: 4px 8px;
+  }
+
+  .work-grid .description {
+    padding: 12px;
+  }
+
+  .work-grid .title {
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+  }
+
+  .work-grid .card-footer {
+    font-size: 0.65rem;
+    line-height: 1.2;
+  }
+
+  .work-grid .circle {
+    width: 100px;
+    height: 100px;
+    filter: blur(25px);
+  }
+
+  .work-grid #bottom {
+    top: 120px;
+    left: -20px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .work-grid #right {
+    top: -20px;
+    left: 100px;
+    width: 80px;
+    height: 80px;
+  }
+}
+
 /* About Section */
 .about-container {
   display: grid;
