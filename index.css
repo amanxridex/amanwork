@@ -192,42 +192,42 @@ a {
   top: 12%;
   left: 16%;
   animation-delay: 0s;
-  width: clamp(80px, 12vw, 160px);
+  width: clamp(120px, 20vw, 160px);
 }
 
 .shape-star {
   top: 6%;
   right: 18%;
   animation-delay: -1s;
-  width: clamp(120px, 18vw, 220px);
+  width: clamp(160px, 25vw, 220px);
 }
 
 .shape-sphere {
   top: 40%;
   left: 12%;
   animation-delay: -2s;
-  width: clamp(130px, 16vw, 240px);
+  width: clamp(160px, 25vw, 240px);
 }
 
 .shape-blob {
   top: 42%;
   right: 15%;
   animation-delay: -3s;
-  width: clamp(110px, 15vw, 190px);
+  width: clamp(150px, 22vw, 190px);
 }
 
 .shape-cylinder {
   bottom: 12%;
   left: 20%;
   animation-delay: -4s;
-  width: clamp(120px, 16vw, 200px);
+  width: clamp(160px, 22vw, 200px);
 }
 
 .shape-cube {
   bottom: 16%;
   right: 22%;
   animation-delay: -5s;
-  width: clamp(100px, 14vw, 180px);
+  width: clamp(140px, 20vw, 180px);
 }
 
 @keyframes floatShape {
@@ -301,7 +301,7 @@ a {
   transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform-style: preserve-3d;
   border-radius: 48px;
-  box-shadow: 0 40px 80px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
 /* Flip on hover */
@@ -319,8 +319,7 @@ a {
   backface-visibility: hidden;
   border-radius: 48px;
   overflow: hidden;
-  background: #1a1a2e;
-  /* Dark background instead of blue */
+  background: transparent;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -417,6 +416,7 @@ a {
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  margin-top: 40px;
 }
 
 /* --- Review Code Tooltip Component --- */
@@ -1473,6 +1473,10 @@ section:not(.hero-new) {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .hero-bg-text {
+    top: 30%;
   }
 
   .about-container {
