@@ -1502,6 +1502,11 @@ section:not(.hero-new) {
     backdrop-filter: blur(10px);
   }
 
+  /* Prevent background scrolling when menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+
   .hamburger {
     display: flex;
     flex-direction: column;
@@ -2401,111 +2406,7 @@ body:not(.loaded) .hero-subtitle-new {
   }
 }
 
-/* ─── Hamburger Button ─── */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  width: 40px;
-  height: 40px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  z-index: 1010;
-}
-
-.hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--hero-text);
-  border-radius: 2px;
-  transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.2s ease, width 0.3s ease;
-  transform-origin: center;
-}
-
-.hamburger.open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.hamburger.open span:nth-child(2) {
-  opacity: 0;
-  width: 0;
-}
-
-.hamburger.open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* ─── Mobile Nav ─── */
-@media (max-width: 640px) {
-  .hamburger {
-    display: flex;
-  }
-
-  .nav-links {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(252, 252, 252, 0.97);
-    backdrop-filter: blur(20px);
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 8px !important;
-    z-index: 1005;
-    transform: translateY(-100%);
-    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-    display: flex !important;
-  }
-
-  .nav-links.open {
-    transform: translateY(0);
-  }
-
-  .nav-links a {
-    font-size: 1.6rem !important;
-    font-weight: 600 !important;
-    padding: 12px 32px !important;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s, color 0.2s;
-  }
-
-  .nav-links.open a {
-    opacity: 1;
-    transform: none;
-  }
-
-  .nav-links.open a:nth-child(1) {
-    transition-delay: 0.1s;
-  }
-
-  .nav-links.open a:nth-child(2) {
-    transition-delay: 0.15s;
-  }
-
-  .nav-links.open a:nth-child(3) {
-    transition-delay: 0.2s;
-  }
-
-  .nav-links.open a:nth-child(4) {
-    transition-delay: 0.25s;
-  }
-
-  .nav-links.open a:nth-child(5) {
-    transition-delay: 0.3s;
-  }
-
-  .nav-links.open a:nth-child(6) {
-    transition-delay: 0.35s;
-  }
-}
+/* ─── End Conflict Cleanup ─── */
 
 /* ─── Scroll To Top Button ─── */
 #scroll-top {
