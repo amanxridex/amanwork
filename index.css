@@ -1475,14 +1475,6 @@ section:not(.hero-new) {
     align-items: center;
   }
 
-  .work-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .work-card.featured {
-    grid-template-columns: 1fr;
-  }
-
   .about-container {
     grid-template-columns: 1fr;
   }
