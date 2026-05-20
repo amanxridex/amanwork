@@ -10,18 +10,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   });
 
-  tl.from("#expertise .section-tag, #expertise .section-title", {
-    y: 30,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: "power2.out"
-  })
-  .from(".expertise-category", {
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.15,
-    ease: "power3.out"
-  }, "-=0.4");
+  tl.fromTo("#expertise .section-tag, #expertise .section-title", 
+    { y: 30, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power2.out" }
+  )
+  .fromTo(".expertise-category", 
+    { y: 50, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "power3.out" }, 
+    "-=0.4"
+  );
 });
