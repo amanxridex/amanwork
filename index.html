@@ -1,678 +1,271 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aman | Dev • Designer • Founder</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com ">
-    <link rel="preconnect" href="https://fonts.gstatic.com " crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300 ;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,600;1,700&display=swap"
-        rel="stylesheet">
+    <title>Aman | AI-Native Full Stack Engineer</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Modular CSS -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/mindset.css">
+    <link rel="stylesheet" href="css/what-i-do.css">
+    <link rel="stylesheet" href="css/expertise.css">
+    <link rel="stylesheet" href="css/case-studies.css">
+    <link rel="stylesheet" href="css/workflow.css">
 </head>
-
 <body>
-
-    <!-- ── PAGE LOADER ── -->
-    <div id="page-loader">
-        <div class="loader-inner">
-            <span class="loader-name">AMAN.</span>
-            <div class="loader-bar">
-                <div class="loader-fill"></div>
-            </div>
-        </div>
-        <div class="loader-wipe"></div>
-    </div>
-
-    <!-- ── Scroll to Top ── -->
-    <button id="scroll-top" aria-label="Scroll to top">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
-
     <!-- Custom Cursor -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
     <!-- Navigation -->
     <nav class="nav-container" id="main-nav">
-        <!-- Hamburger (mobile only) -->
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-        </button>
         <div class="nav-links" id="nav-links">
             <a href="#hero" class="active">Home</a>
-            <a href="#work" data-cursor="hover">Work</a>
-            <a href="#about" data-cursor="hover">About</a>
-            <a href="#stack" data-cursor="hover">Stack</a>
-            <a href="#testimonials" data-cursor="hover">Reviews</a>
-            <a href="#contact" data-cursor="hover">Contact</a>
+            <a href="#mindset">Mindset</a>
+            <a href="#expertise">Expertise</a>
+            <a href="#work">Case Studies</a>
+            <a href="#workflow">Workflow</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
-    <!-- Hero Section - New Design -->
-    <section class="hero-new" id="hero">
-        <!-- Large Background Text scrolling in middle -->
-        <div class="hero-bg-text">
-            <div class="bg-text-row" id="bgText1">AMAN MISHRA</div>
-        </div>
-
-        <!-- 3D Floating Shapes -->
-        <div class="floating-shapes">
-            <!-- Orange Pyramid (Top Left) -->
-            <div class="shape shape-pyramid" data-speed="0.5">
-                <img src="https://framerusercontent.com/images/LUkmo3gFVQOfp5kvltA05Mc6K4.png?scale-down-to=512 "
-                    alt="Pyramid">
-            </div>
-
-            <!-- Cyan Star (Top Right) -->
-            <div class="shape shape-star" data-speed="0.3">
-                <img src="https://framerusercontent.com/images/l1KkpEI9tJzqQPgJDNKytRuxgeI.png?scale-down-to=512 "
-                    alt="Star">
-            </div>
-
-            <!-- Purple Sphere (Mid Left) -->
-            <div class="shape shape-sphere" data-speed="0.7">
-                <img src="https://framerusercontent.com/images/0f09LEy6qZK1Y9gL9T6AG622ZZ8.png?scale-down-to=512 "
-                    alt="Sphere">
-            </div>
-
-            <!-- Green Cube (Mid Right) -->
-            <div class="shape shape-blob" data-speed="0.4">
-                <img src="https://framerusercontent.com/images/m3YA9HpmQG8c9ThSe5XusCzYw.png?scale-down-to=512 "
-                    alt="Green Rounded Cube">
-            </div>
-
-            <!-- Blue Cylinder (Bottom Left) -->
-            <div class="shape shape-cylinder" data-speed="0.6">
-                <img src="https://framerusercontent.com/images/lZLqIoLGAjMHHOlhOwugYSASrjc.png?scale-down-to=512 "
-                    alt="Cylinder">
-            </div>
-
-            <!-- Yellow Cube (Bottom Right) -->
-            <div class="shape shape-cube" data-speed="0.5">
-                <img src="https://framerusercontent.com/images/jaVohrUAKzleX6rjxEEOPrqeysw.png?scale-down-to=512 "
-                    alt="Yellow Cube">
-            </div>
-        </div>
-
-        <!-- Main Content -->
-        <div class="hero-center">
-            <div class="hero-text">
-                <h1 class="hero-title-new">Hi, I'm <span class="italic-serif">Aman!</span></h1>
-                <!-- subtitle-ticker-wrap added for cycling animation -->
-                <div class="subtitle-ticker-wrap">
-                    <p class="hero-subtitle-new">Collaborative Team Player</p>
-                </div>
-            </div>
-
-            <div class="profile-card-container flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://media.licdn.com/dms/image/v2/D5603AQFiAL1p0jkoqw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1719014312324?e=2147483647&v=beta&t=VYMXTfvyDNOdZTFYO2z2P_5c4tkU1J6lh3AN54xgCr8 "
-                            alt="Aman" class="profile-img-new">
-                    </div>
-                    <div class="flip-card-back">
-                        <img src="https://i.ytimg.com/vi/bQQrdf2mPDg/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGDcgXChlMA8=&rs=AOn4CLD_uedop_aIWHe2v-gH6FbtFA8uuQ "
-                            alt="Aman Fun" class="profile-img-new">
-                    </div>
-                </div>
-            </div>
-
-            <div class="social-proof">
-                <div class="client-avatars">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop "
-                        alt="Client 1">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop "
-                        alt="Client 2">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop "
-                        alt="Client 3">
-                </div>
-                <span class="client-text">14+ Happy Clients</span>
-            </div>
-
+    <!-- 1. Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">AI-Native <br/><span class="text-accent">Full Stack Engineer</span></h1>
+            <p class="hero-subtitle">Building production-grade systems, automation workflows, and scalable web applications.</p>
             <div class="hero-actions">
-                <a href="#contact" class="hero-cta-new" data-cursor="hover">
-                    <span>Let's Work Together!</span>
-                </a>
+                <a href="#work" class="btn btn-primary">View Case Studies</a>
+                <a href="#contact" class="btn btn-secondary">Let's Work Together</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="code-window">
+                <div class="window-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="window-body">
+                    <pre><code><span class="keyword">const</span> <span class="variable">developer</span> = {
+    <span class="property">name</span>: <span class="string">'Aman Mishra'</span>,
+    <span class="property">role</span>: <span class="string">'System Architect & Engineer'</span>,
+    <span class="property">focus</span>: [<span class="string">'AI'</span>, <span class="string">'Scale'</span>, <span class="string">'UX'</span>],
+    <span class="method">build</span>() {
+        <span class="keyword">return</span> <span class="keyword">this</span>.design() + <span class="keyword">this</span>.deploy();
+    }
+};</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- From Uiverse.io by Esca-Byte - Review Code Component -->
-                <div class="tooltip-container">
-                    <div class="trigger-wrapper">
-                        <svg class="branch-path-svg" viewBox="0 0 300 60">
-                            <path class="branch-line line-left" d="M150,0 C150,25 60,25 60,60" fill="none"
-                                stroke="#a371f7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path class="branch-line line-right" d="M150,0 C150,25 240,25 240,60" fill="none"
-                                stroke="#238636" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <circle cx="60" cy="60" r="3" class="branch-dot dot-left" fill="#a371f7"></circle>
-                            <circle cx="240" cy="60" r="3" class="branch-dot dot-right" fill="#238636"></circle>
-                        </svg>
+    <!-- 2. Engineering Mindset (How I Think) -->
+    <section class="mindset-section section-padding" id="mindset">
+        <div class="container">
+            <span class="section-tag">How I Think</span>
+            <h2 class="section-title">I don't just write code —<br/>I design <span class="text-accent">systems.</span></h2>
+            
+            <div class="mindset-grid">
+                <div class="mindset-card">
+                    <h3>End-to-End Ownership</h3>
+                    <p>From frontend UX to backend architecture, deployment pipelines, and production debugging. I focus on building scalable and maintainable solutions.</p>
+                </div>
+                <div class="mindset-card">
+                    <h3>AI as a Multiplier</h3>
+                    <p>I use AI to accelerate development, rapid research, debugging, and system design while maintaining practical production understanding.</p>
+                </div>
+                <div class="mindset-card">
+                    <h3>Product-Led Engineering</h3>
+                    <p>Thinking beyond syntax. I build with user friction, lead quality, conversion rates, and overall business metrics in mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                        <button class="merge-btn" data-cursor="hover">View Code</button>
+    <!-- 3. What I Actually Do -->
+    <section class="what-i-do-section section-padding" id="what-i-do">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <span class="section-tag">What I Actually Do</span>
+                    <h2 class="section-title">Rapidly building and deploying <span class="text-accent">production systems</span>.</h2>
+                    <ul class="do-list">
+                        <li>Full-stack web applications</li>
+                        <li>AI-integrated systems & prompt orchestration</li>
+                        <li>Desktop apps using Tauri + Rust</li>
+                        <li>Backend architecture & REST APIs</li>
+                        <li>Workflow automation & pipelines</li>
+                        <li>Performance optimization & caching</li>
+                    </ul>
+                </div>
+                <div class="visual-content">
+                    <div class="abstract-shape shape-1"></div>
+                    <div class="abstract-shape shape-2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Core Expertise (Tech Stack) -->
+    <section class="expertise-section section-padding" id="expertise">
+        <div class="container">
+            <span class="section-tag">Core Expertise</span>
+            <h2 class="section-title">The Engineering <span class="text-accent">Stack</span></h2>
+            
+            <div class="expertise-grid">
+                <div class="expertise-category">
+                    <h3>Product Engineering</h3>
+                    <div class="tags">
+                        <span>React</span><span>Next.js</span><span>Node.js</span><span>Express</span>
+                        <span>REST APIs</span><span>SQL</span><span>Authentication</span><span>State Management</span>
                     </div>
-
-                    <div class="tooltips-wrapper">
-                        <div class="tooltip-content" style="border-left: 2px solid #a371f7;">
-                            <div class="tooltip-header" style="color: #a371f7;">
-                                <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
-                                    <path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path>
-                                </svg>
-                                <span>Design Approved</span>
-                            </div>
-                            <div class="tooltip-info">Figma mockups signed off</div>
-                        </div>
-
-                        <div class="tooltip-content" style="border-left: 2px solid #238636;">
-                            <div class="tooltip-header" style="color: #238636;">
-                                <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
-                                    <path
-                                        d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z">
-                                    </path>
-                                </svg>
-                                <span>Code Shipped</span>
-                            </div>
-                            <div class="tooltip-info">Deployed successfully</div>
-                        </div>
+                </div>
+                
+                <div class="expertise-category">
+                    <h3>Infrastructure & Systems</h3>
+                    <div class="tags">
+                        <span>Redis</span><span>Reverse Proxies</span><span>Caching</span>
+                        <span>Deployment Pipelines</span><span>Vercel</span><span>DNS & Hosting</span>
+                    </div>
+                </div>
+                
+                <div class="expertise-category">
+                    <h3>AI-Augmented Dev</h3>
+                    <div class="tags">
+                        <span>AI-assisted architecture</span><span>Rapid MVP building</span>
+                        <span>Workflow automation</span><span>Prompt orchestration</span>
+                    </div>
+                </div>
+                
+                <div class="expertise-category">
+                    <h3>Low-Level / Performance</h3>
+                    <div class="tags">
+                        <span>Rust</span><span>Tauri</span><span>Async systems</span><span>Desktop apps</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Marquee Section -->
-    <div class="marquee-container">
-        <div class="marquee-track">
-            <div class="marquee-content">
-                <span>React</span>
-                <span class="separator">✦</span>
-                <span>Node.js</span>
-                <span class="separator">✦</span>
-                <span>PostgreSQL</span>
-                <span class="separator">✦</span>
-                <span>CSS</span>
-                <span class="separator">✦</span>
-                <span>UI/UX</span>
-                <span class="separator">✦</span>
-                <span>Payments</span>
-                <span class="separator">✦</span>
-                <span>Startup</span>
-                <span class="separator">✦</span>
-                <span>Christ University</span>
-                <span class="separator">✦</span>
-            </div>
-            <div class="marquee-content" aria-hidden="true">
-                <span>React</span>
-                <span class="separator">✦</span>
-                <span>Node.js</span>
-                <span class="separator">✦</span>
-                <span>PostgreSQL</span>
-                <span class="separator">✦</span>
-                <span>Tailwind</span>
-                <span class="separator">✦</span>
-                <span>UI/UX</span>
-                <span class="separator">✦</span>
-                <span>Payments</span>
-                <span class="separator">✦</span>
-                <span>Startup</span>
-                <span class="separator">✦</span>
-                <span>Christ University</span>
-                <span class="separator">✦</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Work Section -->
-    <section class="work" id="work">
-        <div class="section-header" data-animate="fade-up">
-            <span class="section-tag">Selected Work</span>
-            <h2 class="section-title">Building things<br>that <span class="gradient-text">matter</span></h2>
-        </div>
-
-        <div class="work-grid">
-            <!-- Project 1 -->
-            <div class="card" data-animate="slide-up">
-                <div class="content">
-                    <div class="back">
-                        <div class="back-content">
-                            <h1 class="project-abbr">NT</h1>
-                            <strong>Nexus Ticketing</strong>
-                        </div>
-                    </div>
-                    <div class="front">
-                        <div class="img">
-                            <div class="circle"></div>
-                            <div class="circle" id="right"></div>
-                            <div class="circle" id="bottom"></div>
-                        </div>
-                        <div class="front-content">
-                            <small class="badge">Full Stack</small>
-                            <div class="description">
-                                <div class="title">
-                                    <p class="title"><strong>Nexus Ticketing</strong></p>
-                                </div>
-                                <p class="card-footer">
-                                    2024 &nbsp; | &nbsp; Event ticketing with Razorpay, Firebase, & Postgres
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+    <!-- 5. Case Studies (Production Experience) -->
+    <section class="case-studies-section section-padding" id="work">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Production Experience</span>
+                <h2 class="section-title">Real-world <span class="text-accent">deployments</span>.</h2>
+                <div class="metrics">
+                    <div class="metric"><strong>4</strong> Production Applications</div>
+                    <div class="metric"><strong>15+</strong> Client Websites Deployed</div>
                 </div>
             </div>
 
-            <!-- Project 2 -->
-            <div class="card" data-animate="slide-up" data-delay="0.1">
-                <div class="content">
-                    <div class="back">
-                        <div class="back-content">
-                            <h1 class="project-abbr">RC</h1>
-                            <strong>Ridex Cab Services</strong>
-                        </div>
+            <div class="case-studies-list">
+                <!-- Case Study 1 Placeholder -->
+                <div class="case-study-card">
+                    <div class="case-study-image placeholder">
+                        <span>[ AI Lead Qualification Dashboard Image ]</span>
                     </div>
-                    <div class="front">
-                        <div class="img">
-                            <div class="circle" style="background-color: #55ffbb;"></div>
-                            <div class="circle" id="right" style="background-color: #22aaff;"></div>
-                            <div class="circle" id="bottom" style="background-color: #22ff88;"></div>
-                        </div>
-                        <div class="front-content">
-                            <small class="badge">Startup</small>
-                            <div class="description">
-                                <div class="title">
-                                    <p class="title"><strong>Ridex Cab Services</strong></p>
-                                </div>
-                                <p class="card-footer">
-                                    2023 &nbsp; | &nbsp; Founded & built complete cab booking system
-                                </p>
-                            </div>
-                        </div>
+                    <div class="case-study-content">
+                        <h3>AI Lead Qualification System</h3>
+                        <p>An automated pipeline that filters and qualifies leads before they hit the CRM, significantly improving lead quality for the sales team.</p>
+                        <ul>
+                            <li>Custom lead filtering workflow</li>
+                            <li>Dynamic form pipeline</li>
+                            <li>Backend automation</li>
+                            <li>Integrated real-time dashboard</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
 
-            <!-- Project 3 -->
-            <div class="card" data-animate="slide-up" data-delay="0.2">
-                <div class="content">
-                    <div class="back">
-                        <div class="back-content">
-                            <h1 class="project-abbr">TN</h1>
-                            <strong>Trix Namkeen</strong>
-                        </div>
+                <!-- Case Study 2 Placeholder -->
+                <div class="case-study-card reverse">
+                    <div class="case-study-image placeholder">
+                        <span>[ Production SaaS App Image ]</span>
                     </div>
-                    <div class="front">
-                        <div class="img">
-                            <div class="circle" style="background-color: #ff55bb;"></div>
-                            <div class="circle" id="right" style="background-color: #aa22ff;"></div>
-                            <div class="circle" id="bottom" style="background-color: #ff2288;"></div>
-                        </div>
-                        <div class="front-content">
-                            <small class="badge">Brand</small>
-                            <div class="description">
-                                <div class="title">
-                                    <p class="title"><strong>Trix Namkeen</strong></p>
-                                </div>
-                                <p class="card-footer">
-                                    2022 &nbsp; | &nbsp; Snack brand identity & E-commerce platform
-                                </p>
-                            </div>
-                        </div>
+                    <div class="case-study-content">
+                        <h3>Production SaaS Dashboard</h3>
+                        <p>A high-performance enterprise dashboard built for scale, featuring real-time data handling and optimized API flows.</p>
+                        <ul>
+                            <li>Robust authentication system</li>
+                            <li>Real-time data handling</li>
+                            <li>Redis caching implementation</li>
+                            <li>Responsive frontend architecture</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-
-            <!-- Project 4 -->
-            <div class="card" data-animate="slide-up" data-delay="0.3">
-                <div class="content">
-                    <div class="back">
-                        <div class="back-content">
-                            <h1 class="project-abbr">HC</h1>
-                            <strong>Humble Coin</strong>
-                        </div>
+                
+                <!-- Existing Project 1 -->
+                <div class="case-study-card">
+                    <div class="case-study-image placeholder">
+                        <span>[ Nexus Ticketing Image ]</span>
                     </div>
-                    <div class="front">
-                        <div class="img">
-                            <div class="circle" style="background-color: #f7931a;"></div>
-                            <div class="circle" id="right" style="background-color: #eab308;"></div>
-                            <div class="circle" id="bottom" style="background-color: #fbbf24;"></div>
-                        </div>
-                        <div class="front-content">
-                            <small class="badge">Crypto / Web3</small>
-                            <div class="description">
-                                <div class="title">
-                                    <p class="title"><strong>Humble Coin</strong></p>
-                                </div>
-                                <p class="card-footer">
-                                    Built Crypto Project with Humble Team
-                                </p>
-                            </div>
-                        </div>
+                    <div class="case-study-content">
+                        <h3>Nexus Ticketing</h3>
+                        <p>Comprehensive event ticketing platform capable of handling high-traffic surges during ticket drops.</p>
+                        <ul>
+                            <li>Razorpay payment integration</li>
+                            <li>Firebase realtime updates</li>
+                            <li>PostgreSQL database architecture</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="about-container">
-            <div class="about-visual" data-animate="parallax">
-                <div class="about-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&h=800&fit=crop "
-                        alt="About" class="about-img">
-                    <div class="about-frame"></div>
-                    <div class="about-badge">
-                        <span class="badge-number">05</span>
-                        <span class="badge-text">Years<br>Experience</span>
-                    </div>
-                </div>
-            </div>
+    <!-- 6. How I Build -->
+    <section class="workflow-section section-padding" id="workflow">
+        <div class="container text-center">
+            <span class="section-tag">How I Build</span>
+            <h2 class="section-title">Speed. Iteration. <span class="text-accent">Scalability.</span></h2>
+            <p class="workflow-text">
+                My workflow focuses on rapidly prototyping ideas, validating systems in production, optimizing performance, and continuously improving architecture using AI-assisted development and modern engineering practices.
+            </p>
+        </div>
+    </section>
 
-            <div class="about-content">
-                <span class="section-tag" data-animate="fade-up">About Me</span>
-                <h2 class="about-title" data-animate="fade-up" data-delay="0.1">
-                    From sales floors<br>to <span class="highlight">code editors</span>
-                </h2>
-
-                <div class="about-text" data-animate="fade-up" data-delay="0.2">
-                    <p>
-                        Started my journey in sales — crushing targets at <strong>Apna</strong> and <strong>Vimal
-                            Fire</strong>.
-                        Learned the art of understanding people, building relationships, and closing deals.
-                    </p>
-                    <p>
-                        But I wanted to build. Founded <strong>Ridex Cab Services</strong> and <strong>Trix
-                            Namkeen</strong> —
-                        learned that ideas are cheap, execution is everything.
-                    </p>
-                    <p>
-                        Now I combine that business acumen with technical skills.
-                        <strong>Christ University</strong> grad, self-taught developer,
-                        obsessed with creating products that look beautiful and work flawlessly.
-                    </p>
-                </div>
-
-                <div class="about-stats" data-animate="stagger-up" data-delay="0.3">
-                    <div class="stat-item">
-                        <span class="stat-number" data-count="5" data-suffix="+">0</span>
-                        <span class="stat-label">Years Exp</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-count="3" data-suffix="">0</span>
-                        <span class="stat-label">Startups</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-count="50" data-suffix="+">0</span>
-                        <span class="stat-label">Projects</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-count="14" data-suffix="+">0</span>
-                        <span class="stat-label">Happy Clients</span>
-                    </div>
-                </div>
+    <!-- Contact & Footer -->
+    <section class="contact-section section-padding" id="contact">
+        <div class="container text-center">
+            <h2 class="section-title">Ready to build?</h2>
+            <a href="mailto:aman@amanmishra.work" class="email-link">aman@amanmishra.work</a>
+            <div class="social-links mt-4">
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
             </div>
         </div>
     </section>
 
-    <!-- Stack Section Redesigned -->
-    <section class="stack" id="stack">
-        <!-- Floating Spinners Background -->
-        <div class="stack-bg-spinners" aria-hidden="true">
-            <div class="spinner-bg spinner-1" data-speed="0.2">
-                <div class="spinner">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-            <div class="spinner-bg spinner-2" data-speed="0.5">
-                <div class="spinner">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-            <div class="spinner-bg spinner-3" data-speed="0.3">
-                <div class="spinner">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-            <div class="spinner-bg spinner-4" data-speed="0.4">
-                <div class="spinner">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="stack-header" data-animate="fade-up">
-            <span class="section-tag">Tech Stack</span>
-            <h2 class="section-title">The <span class="gradient-text">Engine</span> Inside</h2>
-        </div>
-
-        <div class="stack-grid">
-            <!-- Frontend -->
-            <div class="stack-cat-card" data-animate="fade-up" data-delay="0.1">
-                <h3 class="cat-title">Frontend</h3>
-                <div class="cat-items">
-                    <div class="tech-chip"><img src="assets/react.png" alt="React"
-                            onerror="this.style.display='none'"><span>React</span></div>
-                    <div class="tech-chip"><img src="assets/html-5.png" alt="HTML5"
-                            onerror="this.style.display='none'"><span>HTML5</span></div>
-                    <div class="tech-chip"><img src="assets/java-script.png" alt="JavaScript"
-                            onerror="this.style.display='none'"><span>JavaScript</span></div>
-                    <div class="tech-chip">
-                        <img src="assets/css.png" alt="CSS" onerror="this.style.display='none'"><span>CSS</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Backend -->
-            <div class="stack-cat-card" data-animate="fade-up" data-delay="0.2">
-                <h3 class="cat-title">Backend</h3>
-                <div class="cat-items">
-                    <div class="tech-chip"><img src="assets/node-js.png" alt="Node.js"
-                            onerror="this.style.display='none'"><span>Node.js</span></div>
-                    <div class="tech-chip"><img src="assets/express.png" alt="Express"
-                            onerror="this.style.display='none'"><span>Express</span></div>
-                    <div class="tech-chip"><img src="assets/postgre.png" alt="PostgreSQL"
-                            onerror="this.style.display='none'"><span>PostgreSQL</span></div>
-                    <div class="tech-chip">
-                        <img src="assets/rest-apis.png" alt="REST APIs" onerror="this.style.display='none'"><span>REST
-                            APIs</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Others -->
-            <div class="stack-cat-card" data-animate="fade-up" data-delay="0.3">
-                <h3 class="cat-title">Others</h3>
-                <div class="cat-items">
-                    <div class="tech-chip"><img src="assets/flames.png" alt="Firebase"
-                            onerror="this.style.display='none'"><span>Firebase</span></div>
-                    <div class="tech-chip">
-                        <img src="assets/auth.png" alt="Auth" onerror="this.style.display='none'"><span>Auth</span>
-                    </div>
-                    <div class="tech-chip">
-                        <img src="assets/payments.png" alt="Payments"
-                            onerror="this.style.display='none'"><span>Payments</span>
-                    </div>
-                    <div class="tech-chip">
-                        <img src="assets/performance.png" alt="Performance"
-                            onerror="this.style.display='none'"><span>Performance</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section — NEW -->
-    <section class="testimonials" id="testimonials">
-        <div class="section-header" data-animate="fade-up">
-            <span class="section-tag">Kind Words</span>
-            <h2 class="section-title">What clients <span class="gradient-text">say</span></h2>
-        </div>
-
-        <div class="testimonials-carousel" data-animate="fade-up" data-delay="0.15">
-            <div class="carousel-track" id="carousel-track">
-
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Aman built our entire event platform in weeks — the payment integration
-                        was flawless and the UI was stunning. Clients loved it. Will definitely work together again."
-                    </p>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop "
-                            alt="Rohan">
-                        <div>
-                            <span class="author-name">Rohan Mehta</span>
-                            <span class="author-role">Event Director, Nexus Events</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"From ideation to launch, Aman was hands-on at every stage. He doesn't
-                        just code — he thinks like a founder. The Ridex platform handled real customers on day one."</p>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100&h=100&fit=crop "
-                            alt="Priya">
-                        <div>
-                            <span class="author-name">Priya Sharma</span>
-                            <span class="author-role">Co-founder, Ridex</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Got our brand identity, packaging design, and e-commerce site done in
-                        one sprint. Aman has a rare mix of business sense and design taste. Exceptional work."</p>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop "
-                            alt="Kavya">
-                        <div>
-                            <span class="author-name">Kavya Iyer</span>
-                            <span class="author-role">Founder, Trix Namkeen</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Super responsive, clean code, and great attention to detail. Aman
-                        understands what users want and what clients need. The site performance improved dramatically."
-                    </p>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop "
-                            alt="Arjun">
-                        <div>
-                            <span class="author-name">Arjun Kapoor</span>
-                            <span class="author-role">Product Manager, TechCorp</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="carousel-controls">
-                <button class="carousel-btn" id="prev-btn" aria-label="Previous">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M15 18l-6-6 6-6" />
-                    </svg>
-                </button>
-                <div class="carousel-dots" id="carousel-dots"></div>
-                <button class="carousel-btn" id="next-btn" aria-label="Next">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="contact-container">
-            <div class="contact-content" data-animate="fade-up">
-                <span class="section-tag">Get In Touch</span>
-                <h2 class="contact-title">
-                    Let's build<br>
-                    <span class="gradient-text">something great</span>
-                </h2>
-                <p class="contact-subtitle">
-                    Have a project in mind? Want to collaborate?
-                    Or just want to say hi? I'm always open to interesting conversations.
-                </p>
-
-                <div class="contact-links">
-                    <a href="mailto:aman@amanmishra.work" class="contact-link large" data-cursor="hover">
-                        <span>aman@amanmishra.work</span>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M7 17L17 7M17 7H7M17 7V17" />
-                        </svg>
-                    </a>
-                </div>
-
-                <div class="social-links">
-                    <a href="#" class="social-link" data-cursor="hover">GitHub</a>
-                    <a href="#" class="social-link" data-cursor="hover">LinkedIn</a>
-                    <a href="#" class="social-link" data-cursor="hover">Twitter</a>
-                    <a href="#" class="social-link" data-cursor="hover">Dribbble</a>
-                </div>
-            </div>
-
-            <div class="contact-visual" data-animate="scale-in" data-delay="0.2">
-                <div class="contact-orb"></div>
-                <div class="contact-text-rotate">
-                    <svg viewBox="0 0 200 200">
-                        <path id="textPath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
-                            fill="none" />
-                        <text>
-                            <textPath href="#textPath">AVAILABLE TO COLLABORATE • LET'S WORK TOGETHER • </textPath>
-                        </text>
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-top">
-                <span class="footer-logo">AMAN.</span>
-                <span class="footer-year">© 2026</span>
-            </div>
-            <div class="footer-bottom">
-                <p>Designed & Built with passion</p>
-                <div class="footer-socials">
-                    <a href="#" class="footer-social-link" data-cursor="hover">GH</a>
-                    <a href="#" class="footer-social-link" data-cursor="hover">LI</a>
-                    <a href="#" class="footer-social-link" data-cursor="hover">TW</a>
-                    <a href="#" class="footer-social-link" data-cursor="hover">DR</a>
-                </div>
+        <div class="container">
+            <div class="footer-flex">
+                <div class="footer-logo">AMAN.</div>
+                <div class="footer-copy">© 2026 Designed & Built with systems thinking.</div>
             </div>
         </div>
     </footer>
 
-    <script src="index.js"></script>
+    <!-- GSAP & Lenis (Smooth Scroll) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+    <!-- Modular JS -->
+    <script src="js/global.js"></script>
+    <script src="js/hero.js"></script>
+    <script src="js/mindset.js"></script>
+    <script src="js/what-i-do.js"></script>
+    <script src="js/expertise.js"></script>
+    <script src="js/case-studies.js"></script>
+    <script src="js/workflow.js"></script>
 </body>
+</html>

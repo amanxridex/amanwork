@@ -1,0 +1,118 @@
+/* css/case-studies.css */
+
+.case-studies-section {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+}
+
+.section-header {
+  margin-bottom: 60px;
+}
+
+.metrics {
+  display: flex;
+  gap: 32px;
+  margin-top: -16px;
+}
+
+.metric {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.metric strong {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  display: block;
+}
+
+.case-studies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.case-study-card {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.case-study-card.reverse {
+  flex-direction: row-reverse;
+}
+
+.case-study-image {
+  flex: 1.2;
+  height: 450px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  position: relative;
+}
+
+.case-study-image.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--bg-tertiary),
+    var(--bg-tertiary) 10px,
+    var(--bg-secondary) 10px,
+    var(--bg-secondary) 20px
+  );
+}
+
+.case-study-content {
+  flex: 1;
+}
+
+.case-study-content h3 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.case-study-content p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+}
+
+.case-study-content ul {
+  list-style: none;
+}
+
+.case-study-content ul li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.case-study-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+@media (max-width: 992px) {
+  .case-study-card, .case-study-card.reverse {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .case-study-image {
+    width: 100%;
+    height: 300px;
+  }
+}

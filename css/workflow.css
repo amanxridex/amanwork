@@ -1,0 +1,35 @@
+/* css/workflow.css */
+
+.workflow-section {
+  background: var(--bg-color);
+  border-top: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.workflow-text {
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.workflow-text .highlight {
+  color: var(--text-primary);
+  background: linear-gradient(120deg, var(--glow-color) 0%, transparent 100%);
+  padding: 0 8px;
+  border-radius: 4px;
+}
+
+.workflow-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 100px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  opacity: 0.5;
+}
