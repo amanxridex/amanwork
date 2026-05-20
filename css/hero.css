@@ -14,6 +14,54 @@
   flex: 1;
   max-width: 600px;
   z-index: 10;
+  position: relative;
+}
+
+/* Ambient Glow Orbs */
+.hero-glow {
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  max-width: 600px;
+  max-height: 600px;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  opacity: 0.15;
+  animation: pulse-glow 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.glow-1 {
+  top: -10%;
+  left: -10%;
+  background: #7928ca;
+}
+
+.glow-2 {
+  bottom: -10%;
+  right: -10%;
+  background: #0070f3;
+  animation-delay: -4s;
+}
+
+@keyframes pulse-glow {
+  0% { transform: scale(0.8) translate(0, 0); opacity: 0.1; }
+  100% { transform: scale(1.2) translate(30px, -30px); opacity: 0.25; }
+}
+
+/* Gradient Text */
+.text-gradient {
+  background: linear-gradient(to right, #0070f3, #7928ca, #ff0080);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
 }
 
 .hero-title {
@@ -46,27 +94,29 @@
   perspective: 1000px;
 }
 
-/* Linear-style Code Window */
+/* Sleek Glassmorphism Code Window */
 .code-window {
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-md);
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
   width: 100%;
-  max-width: 500px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  max-width: 550px;
+  box-shadow: 
+    0 0 0 1px rgba(255,255,255,0.02) inset,
+    0 30px 60px -15px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(121, 40, 202, 0.15);
   overflow: hidden;
-  transform: rotateY(-5deg) rotateX(5deg);
-  transition: transform 0.5s ease;
-}
-
-.code-window:hover {
-  transform: rotateY(0) rotateX(0);
+  transform: perspective(1000px) rotateY(-12deg) rotateX(8deg);
+  will-change: transform;
+  /* Float animation handled by JS */
 }
 
 .window-header {
-  background: var(--bg-secondary);
+  background: rgba(255, 255, 255, 0.03);
   padding: 12px 16px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   gap: 8px;
 }
@@ -83,7 +133,7 @@
 
 .window-body {
   padding: 24px;
-  background: var(--bg-tertiary);
+  background: transparent;
   font-family: var(--font-mono);
   font-size: 0.9rem;
   line-height: 1.5;

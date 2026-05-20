@@ -44,4 +44,38 @@ document.addEventListener("DOMContentLoaded", (event) => {
       scrub: true
     }
   });
+
+  // 3D Interactive Mouse Tilt
+  const codeWindow = document.querySelector('.code-window');
+  const heroSection = document.querySelector('.hero-section');
+  
+  if (codeWindow && heroSection) {
+    heroSection.addEventListener('mousemove', (e) => {
+      // Calculate mouse position relative to center of screen
+      const xPos = (e.clientX / window.innerWidth) - 0.5;
+      const yPos = (e.clientY / window.innerHeight) - 0.5;
+      
+      // Calculate rotation (more movement = more tilt)
+      const rotateY = xPos * 30 - 5; // offset slightly
+      const rotateX = yPos * -30 + 5;
+      
+      gsap.to(codeWindow, {
+        rotationY: rotateY,
+        rotationX: rotateX,
+        duration: 0.8,
+        ease: "power2.out",
+        overwrite: "auto"
+      });
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      gsap.to(codeWindow, {
+        rotationY: -12,
+        rotationX: 8,
+        duration: 1.5,
+        ease: "elastic.out(1, 0.3)",
+        overwrite: "auto"
+      });
+    });
+  }
 });
