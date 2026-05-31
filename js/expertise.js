@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power2.out" }
   )
   .fromTo(".expertise-category", 
-    { y: 50, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "power3.out" }, 
+    { y: 60, scale: 0.9, opacity: 0 },
+    { y: 0, scale: 1, opacity: 1, duration: 0.7, stagger: 0.1, ease: "back.out(1.5)" }, 
     "-=0.4"
   );
 });
