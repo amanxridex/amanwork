@@ -18,6 +18,13 @@
   padding: 32px;
   display: flex;
   flex-direction: column;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.expertise-category:hover {
+  border-color: var(--text-secondary);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px);
 }
 
 .expertise-category h3 {
