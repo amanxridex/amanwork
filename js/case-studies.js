@@ -17,28 +17,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   );
 
-  const cases = document.querySelectorAll(".case-study-card");
+  const bentoCards = document.querySelectorAll(".bento-card");
 
-  cases.forEach((card, i) => {
-    const isReverse = card.classList.contains("reverse");
-    const img = card.querySelector(".case-study-image");
-    const content = card.querySelector(".case-study-content");
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: card,
-        start: "top 85%",
+  bentoCards.forEach((card, i) => {
+    gsap.fromTo(card, 
+      { y: 50, opacity: 0, scale: 0.95 },
+      {
+        scrollTrigger: {
+          trigger: card,
+          start: "top 90%",
+        },
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        ease: "power3.out",
+        delay: (i % 4) * 0.1
       }
-    });
-
-    tl.fromTo(img, 
-      { x: isReverse ? 50 : -50, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1, ease: "power3.out" }
-    )
-    .fromTo(content, 
-      { x: isReverse ? -50 : 50, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1, ease: "power3.out" }, 
-      "-=0.8"
     );
   });
 });
