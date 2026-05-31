@@ -21,14 +21,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   bentoCards.forEach((card, i) => {
     gsap.fromTo(card, 
-      { y: 50, opacity: 0, scale: 0.95 },
+      { y: 50, scale: 0.95 },
       {
         scrollTrigger: {
           trigger: card,
           start: "top 90%",
         },
         y: 0,
-        opacity: 1,
         scale: 1,
         duration: 0.8,
         ease: "power3.out",
